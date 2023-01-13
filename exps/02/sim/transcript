@@ -1,0 +1,316 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 linux_x86_64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -vhdlvariablelogging work.contador_163_tb 
+# Start time: 16:06:24 on Jan 13,2023
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.contador_163_tb(tb)#1
+add wave -position insertpoint sim:/contador_163_tb/stimulus/*
+# (vish-4014) No objects found matching 'sim:/contador_163_tb/stimulus/*'.
+add wave -position insertpoint sim:/contador_163_tb/stimulus/*
+# (vish-4014) No objects found matching 'sim:/contador_163_tb/stimulus/*'.
+add wave -r sim:/contador_163_tb/stimulus/*
+# (vish-4014) No objects found matching 'sim:/contador_163_tb/stimulus/*'.
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 16:16:55 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity contador_163_tb
+# -- Compiling architecture tb of contador_163_tb
+# End time: 16:16:55 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.contador_163_tb(tb)#1
+add wave -position insertpoint  \
+sim:/contador_163_tb/caso \
+sim:/contador_163_tb/clock_in \
+sim:/contador_163_tb/clockPeriod \
+sim:/contador_163_tb/clr_in \
+sim:/contador_163_tb/d_in \
+sim:/contador_163_tb/enp_in \
+sim:/contador_163_tb/ent_in \
+sim:/contador_163_tb/ld_in \
+sim:/contador_163_tb/q_out \
+sim:/contador_163_tb/rco_out
+# Causality operation skipped due to absence of debug database file
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /contador_163_tb
+# ** Note: Fim da simulacao
+#    Time: 1740 ns  Iteration: 0  Instance: /contador_163_tb
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error - Undo: invalid command name ".main_pane.dataflow.interior.cs.body.pw.wf.top.tree.tree1" command is .main_pane.dataflow.interior.cs.body.pw.wf.top.tree.tree1 undo delete 0
+# Error Undo Start called while in Redo capture mode
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:04:49 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity comparador_85
+# -- Compiling architecture dataflow of comparador_85
+# End time: 17:04:49 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:04:49 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity comparador_85_tb
+# -- Compiling architecture tb of comparador_85_tb
+# End time: 17:04:49 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -vhdlvariablelogging work.comparador_85_tb
+# End time: 17:04:57 on Jan 13,2023, Elapsed time: 0:58:33
+# Errors: 0, Warnings: 0
+# vsim -vhdlvariablelogging work.comparador_85_tb 
+# Start time: 17:04:57 on Jan 13,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.comparador_85_tb(tb)#1
+add wave -position insertpoint  \
+sim:/comparador_85_tb/a_in \
+sim:/comparador_85_tb/aeqb_in \
+sim:/comparador_85_tb/aeqb_out \
+sim:/comparador_85_tb/agtb_in \
+sim:/comparador_85_tb/agtb_out \
+sim:/comparador_85_tb/altb_in \
+sim:/comparador_85_tb/altb_out \
+sim:/comparador_85_tb/b_in \
+sim:/comparador_85_tb/casos_teste \
+sim:/comparador_85_tb/clockPeriod
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 0
+#    Time: 0 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 1
+#    Time: 100 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 2
+#    Time: 200 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 3
+#    Time: 300 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 4
+#    Time: 400 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 5
+#    Time: 500 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 6
+#    Time: 600 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 7
+#    Time: 700 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 8
+#    Time: 800 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 9
+#    Time: 900 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Fim da simulacao
+#    Time: 1 us  Iteration: 0  Instance: /comparador_85_tb
+add wave -position insertpoint  \
+sim:/comparador_85_tb/casos_teste
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.comparador_85_tb(tb)#1
+add wave -position insertpoint  \
+sim:/comparador_85_tb/caso
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 0
+#    Time: 0 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 100 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 1
+#    Time: 100 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 2
+#    Time: 200 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 300 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 3
+#    Time: 300 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 400 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 4
+#    Time: 400 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 500 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 5
+#    Time: 500 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 600 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 6
+#    Time: 600 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 700 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 7
+#    Time: 700 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 800 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 8
+#    Time: 800 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 900 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Caso de teste 9
+#    Time: 900 ns  Iteration: 0  Instance: /comparador_85_tb
+# ** Error: Assertion violation.
+#    Time: 1 us  Iteration: 0  Instance: /comparador_85_tb
+# ** Note: Fim da simulacao
+#    Time: 1 us  Iteration: 0  Instance: /comparador_85_tb
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:47:04 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ram_16x4_tb
+# -- Compiling architecture tb of ram_16x4_tb
+# -- Loading entity ram_16x4
+# End time: 17:47:04 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:47:04 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ram_16x4
+# -- Compiling architecture ram_mif of ram_16x4
+# -- Compiling architecture ram_modelsim of ram_16x4
+# -- Loading entity ram_16x4
+# End time: 17:47:05 on Jan 13,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim -vhdlvariablelogging work.ram_16x4_tb
+# End time: 17:47:18 on Jan 13,2023, Elapsed time: 0:42:21
+# Errors: 9, Warnings: 0
+# vsim -vhdlvariablelogging work.ram_16x4_tb 
+# Start time: 17:47:18 on Jan 13,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-13) Recompile work.ram_16x4_tb(tb) because work.ram_16x4 has changed.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.ram_16x4_tb(tb)#1
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 17:48:55 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ram_16x4_tb
+# -- Compiling architecture tb of ram_16x4_tb
+# -- Loading entity ram_16x4
+# End time: 17:48:55 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.ram_16x4_tb(tb)#1
+add wave -position insertpoint  \
+sim:/ram_16x4_tb/caso \
+sim:/ram_16x4_tb/clk_in \
+sim:/ram_16x4_tb/clockPeriod \
+sim:/ram_16x4_tb/dado_in \
+sim:/ram_16x4_tb/dado_out \
+sim:/ram_16x4_tb/endereco_in \
+sim:/ram_16x4_tb/intervalo \
+sim:/ram_16x4_tb/keep_simulating \
+sim:/ram_16x4_tb/we_in
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 0 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Error: Assertion violation.
+#    Time: 420 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 420 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 540 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 4 - leitura da memoria
+#    Time: 660 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Fim da simulacao
+#    Time: 1080 ns  Iteration: 0  Instance: /ram_16x4_tb
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 0 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Error: Assertion violation.
+#    Time: 420 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 420 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 1 - leitura da memoria
+#    Time: 540 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Caso de teste 4 - leitura da memoria
+#    Time: 660 ns  Iteration: 0  Instance: /ram_16x4_tb
+# ** Note: Fim da simulacao
+#    Time: 1080 ns  Iteration: 0  Instance: /ram_16x4_tb

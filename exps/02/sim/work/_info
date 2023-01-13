@@ -1,0 +1,403 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/hdl
+T_opt
+!s110 1673642940
+V5QG^i^mcAm1c6Q]1:8e?_1
+04 11 2 work ram_16x4_tb tb 1
+=2-000ae431a4f1-63c1c3bc-aec96-686d
+Z2 !s124 OEM10U2 
+Z3 o-quiet -auto_acc_if_foreign -work work
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.2;73
+T_opt1
+!s110 1673637436
+VDHRIPL^^[68Cz5Izk>Odh1
+04 15 2 work contador_163_tb tb 1
+=2-000ae431a4f1-63c1ae3b-da80e-551f
+R2
+R3
+R4
+n@_opt1
+R5
+R1
+T_opt2
+!s110 1673641589
+VdI>4?g3KHS]>[ON;J`XER0
+04 16 2 work comparador_85_tb tb 1
+=2-000ae431a4f1-63c1be75-167da-62e1
+R2
+R3
+R4
+n@_opt2
+R5
+R1
+Ecircuito_exp2_ativ2_tb
+Z6 w1673379734
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 6
+Z9 d/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim
+Z10 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd
+Z11 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd
+l0
+Z12 L21 1
+VWzYHUOZ<UJao;@1L1km6Z1
+!s100 [2j5UX9PIBIK>=KN6H=>G0
+Z13 OL;C;2021.2;73
+32
+Z14 !s110 1673636399
+!i10b 1
+Z15 !s108 1673636399.000000
+Z16 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd|
+Z17 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd|
+!i113 0
+Z18 o-work work
+Z19 tExplicit 1 CvgOpt 0
+Atb
+R7
+R8
+DEx4 work 22 circuito_exp2_ativ2_tb 0 22 WzYHUOZ<UJao;@1L1km6Z1
+!i122 6
+l59
+L24 191
+Vb^0R45DZazD;k^S4T6SQF3
+!s100 <0:F4jXWm7he43CDX[QWW1
+R13
+32
+R14
+!i10b 1
+R15
+R16
+R17
+!i113 0
+R18
+R19
+Ecomparador_85
+R6
+R7
+R8
+!i122 20
+R9
+Z20 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd
+Z21 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd
+l0
+L18 1
+Vn;CBL11<o[1W?[o5iWSn_2
+!s100 UchionOWWKZd[S9Df?mH>0
+R13
+32
+Z22 !s110 1673640289
+!i10b 1
+Z23 !s108 1673640289.000000
+Z24 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd|
+Z25 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/comparador_85.vhd|
+!i113 0
+R18
+R19
+Adataflow
+R7
+R8
+DEx4 work 13 comparador_85 0 22 n;CBL11<o[1W?[o5iWSn_2
+!i122 20
+l41
+L37 20
+VC<^GjH9kdG]R3DLD_99jl3
+!s100 P^;hPi]5OVVdjL6GdC0U80
+R13
+32
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 0
+R18
+R19
+Ecomparador_85_tb
+Z26 w1673641577
+R7
+R8
+!i122 23
+R9
+Z27 8comparador_85_tb.vhd
+Z28 Fcomparador_85_tb.vhd
+l0
+R12
+V1Q8g>GigTCC3jPQMLT_In1
+!s100 4VIK_9S5TGB[W@5YeU@Om1
+R13
+32
+Z29 !s110 1673641580
+!i10b 1
+Z30 !s108 1673641580.000000
+Z31 !s90 comparador_85_tb.vhd|
+Z32 !s107 comparador_85_tb.vhd|
+!i113 0
+R19
+Atb
+R7
+R8
+DEx4 work 16 comparador_85_tb 0 22 1Q8g>GigTCC3jPQMLT_In1
+!i122 23
+l89
+L24 120
+VNbX>`H^5K6N^BBiJo@kN13
+!s100 Ke46RBM<771SDAWRRXb8g0
+R13
+32
+R29
+!i10b 1
+R30
+R31
+R32
+!i113 0
+R19
+Econtador_163
+R6
+Z33 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R7
+R8
+!i122 12
+R9
+Z34 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163.vhd
+Z35 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163.vhd
+l0
+Z36 L19 1
+VX76>IE<hD@PAg93BbE2<M3
+!s100 HncTPI9f>PSaSM@8d2b100
+R13
+32
+Z37 !s110 1673636420
+!i10b 1
+Z38 !s108 1673636420.000000
+Z39 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163.vhd|
+Z40 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163.vhd|
+!i113 0
+R18
+R19
+Acomportamental
+R33
+R7
+R8
+DEx4 work 12 contador_163 0 22 X76>IE<hD@PAg93BbE2<M3
+!i122 12
+l34
+L32 29
+VgP@4FZQ0Q[OAN>2<2TmgC2
+!s100 :UBU?:`V1RR45eY[;lMH80
+R13
+32
+R37
+!i10b 1
+R38
+R39
+R40
+!i113 0
+R18
+R19
+Econtador_163_tb
+Z41 w1673637394
+R7
+R8
+!i122 19
+R9
+Z42 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd
+Z43 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd
+l0
+L20 1
+V;_[CP1P4hhYVOZSKz`VF:0
+!s100 8<kW60Qd:zde5T3l1AELS2
+R13
+32
+Z44 !s110 1673637415
+!i10b 1
+Z45 !s108 1673637415.000000
+Z46 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd|
+Z47 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/contador_163_tb.vhd|
+!i113 0
+R18
+R19
+Atb
+R7
+R8
+DEx4 work 15 contador_163_tb 0 22 ;_[CP1P4hhYVOZSKz`VF:0
+!i122 19
+l57
+L23 227
+VJ`d48aTKizNObmPilJPeG0
+!s100 @R]PR<=BkYRUXQ8P<QGVQ3
+R13
+32
+R44
+!i10b 1
+R45
+R46
+R47
+!i113 0
+R18
+R19
+Ehexa7seg
+R6
+R7
+R8
+!i122 3
+R1
+Z48 8hexa7seg.vhd
+Z49 Fhexa7seg.vhd
+l0
+L24 1
+VYDL50=FC5niQbGIL>l8Z32
+!s100 m70:2LbOnf0ODWJKbc?@F3
+R13
+32
+Z50 !s110 1673626255
+!i10b 1
+Z51 !s108 1673626255.000000
+Z52 !s90 circuito_exp2_ativ2_tb.vhd|comparador_85_tb.vhd|comparador_85.vhd|contador_163_tb.vhd|contador_163.vhd|hexa7seg.vhd|ram_16x4_tb.vhd|ram_16x4.vhd|
+Z53 !s107 ram_16x4.vhd|ram_16x4_tb.vhd|hexa7seg.vhd|contador_163.vhd|contador_163_tb.vhd|comparador_85.vhd|comparador_85_tb.vhd|circuito_exp2_ativ2_tb.vhd|
+!i113 0
+R19
+Acomportamental
+R7
+R8
+DEx4 work 8 hexa7seg 0 22 YDL50=FC5niQbGIL>l8Z32
+!i122 3
+l32
+L31 22
+Ve5WWWEO3@O<FC2?6b2gQW0
+!s100 U7QTX5YA5zSmB21GTflT=3
+R13
+32
+R50
+!i10b 1
+R51
+R52
+R53
+!i113 0
+R19
+Eram_16x4
+Z54 w1673642508
+R33
+R7
+R8
+!i122 25
+R9
+Z55 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd
+Z56 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd
+l0
+L28 1
+V9B84EKXR6FZS`R0ID3UH=1
+!s100 7_Oke2`[UPj15mR6JKQR]2
+R13
+32
+Z57 !s110 1673642825
+!i10b 1
+Z58 !s108 1673642824.000000
+Z59 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd|
+Z60 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4.vhd|
+!i113 0
+R18
+R19
+Aram_modelsim
+R33
+R7
+R8
+Z61 DEx4 work 8 ram_16x4 0 22 9B84EKXR6FZS`R0ID3UH=1
+!i122 25
+l91
+L71 41
+VbhUR>ifPc6g1h_N63j1^K3
+!s100 l@7E>j:3A1g;20Mg27Rlk1
+R13
+32
+R57
+!i10b 1
+R58
+R59
+R60
+!i113 0
+R18
+R19
+Aram_mif
+R33
+R7
+R8
+R61
+!i122 25
+l48
+L40 29
+V;<U_ISU9;fLM>XkE?Ee]l2
+!s100 JDWBYNUI^2`VI6[8HSCMf1
+R13
+32
+R57
+!i10b 1
+R58
+R59
+R60
+!i113 0
+R18
+R19
+Eram_16x4_tb
+Z62 w1673642929
+R33
+R7
+R8
+!i122 26
+R9
+Z63 8/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd
+Z64 F/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd
+l0
+R36
+VHd^SW=f7:U<>H32e6kjz33
+!s100 aKnN43_D?:bYSibod]Q5F1
+R13
+32
+Z65 !s110 1673642935
+!i10b 1
+Z66 !s108 1673642935.000000
+Z67 !s90 -reportprogress|300|-work|work|/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd|
+Z68 !s107 /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/ram_16x4_tb.vhd|
+!i113 0
+R18
+R19
+Atb
+R61
+R33
+R7
+R8
+DEx4 work 11 ram_16x4_tb 0 22 Hd^SW=f7:U<>H32e6kjz33
+!i122 26
+l54
+L22 112
+VgRZfDoHY6NMF0PWmCC2E12
+!s100 WeKb^b<z_[`Q0=mD5XXoE1
+R13
+32
+R65
+!i10b 1
+R66
+R67
+R68
+!i113 0
+R18
+R19
