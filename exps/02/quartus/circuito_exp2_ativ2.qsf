@@ -61,7 +61,25 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_U7 -to clock
+set_location_assignment PIN_W9 -to zera
+set_location_assignment PIN_U13 -to conta
+set_location_assignment PIN_V13 -to chaves[0]
+set_location_assignment PIN_T13 -to chaves[1]
+set_location_assignment PIN_T12 -to chaves[2]
+set_location_assignment PIN_AA15 -to chaves[3]
+set_location_assignment PIN_AB15 -to escreve
+set_location_assignment PIN_AA2 -to db_contagem[0]
+set_location_assignment PIN_AA1 -to db_contagem[1]
+set_location_assignment PIN_W2 -to db_contagem[2]
+set_location_assignment PIN_Y3 -to db_contagem[3]
+set_location_assignment PIN_N2 -to fim
+set_location_assignment PIN_N1 -to db_memoria[0]
+set_location_assignment PIN_U2 -to db_memoria[1]
+set_location_assignment PIN_U1 -to db_memoria[2]
+set_location_assignment PIN_L2 -to db_memoria[3]
+set_location_assignment PIN_L1 -to igual
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

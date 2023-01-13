@@ -314,3 +314,59 @@ run -all
 #    Time: 660 ns  Iteration: 0  Instance: /ram_16x4_tb
 # ** Note: Fim da simulacao
 #    Time: 1080 ns  Iteration: 0  Instance: /ram_16x4_tb
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:12:02 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp2_ativ2
+# -- Compiling architecture estrutural of circuito_exp2_ativ2
+# -- Loading package NUMERIC_STD
+# -- Loading entity ram_16x4
+# End time: 19:12:02 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 19:12:02 on Jan 13,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/sim/circuito_exp2_ativ2_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp2_ativ2_tb
+# -- Compiling architecture tb of circuito_exp2_ativ2_tb
+# End time: 19:12:02 on Jan 13,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -vhdlvariablelogging work.circuito_exp2_ativ2_tb
+# End time: 19:12:17 on Jan 13,2023, Elapsed time: 1:24:59
+# Errors: 1, Warnings: 0
+# vsim -vhdlvariablelogging work.circuito_exp2_ativ2_tb 
+# Start time: 19:12:17 on Jan 13,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.circuito_exp2_ativ2_tb(tb)#1
+add wave -position insertpoint  \
+sim:/circuito_exp2_ativ2_tb/caso \
+sim:/circuito_exp2_ativ2_tb/chaves_in \
+sim:/circuito_exp2_ativ2_tb/clock_in \
+sim:/circuito_exp2_ativ2_tb/clockPeriod \
+sim:/circuito_exp2_ativ2_tb/conta_in \
+sim:/circuito_exp2_ativ2_tb/db_contagem_out \
+sim:/circuito_exp2_ativ2_tb/db_memoria_out \
+sim:/circuito_exp2_ativ2_tb/escreve_in \
+sim:/circuito_exp2_ativ2_tb/fim_out \
+sim:/circuito_exp2_ativ2_tb/igual_out \
+sim:/circuito_exp2_ativ2_tb/zera_in
+# Can't move the Now cursor.
+# Can't move the Now cursor.
+run -all
+# ** Note: Inicio da simulacao
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp2_ativ2_tb
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp2_ativ2_tb/dut/memoria
+# ** Note: Fim da simulacao
+#    Time: 1460 ns  Iteration: 0  Instance: /circuito_exp2_ativ2_tb

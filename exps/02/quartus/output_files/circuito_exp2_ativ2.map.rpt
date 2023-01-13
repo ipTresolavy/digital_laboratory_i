@@ -1,5 +1,5 @@
 Analysis & Synthesis report for circuito_exp2_ativ2
-Fri Jan 13 15:09:45 2023
+Fri Jan 13 19:53:29 2023
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -10,7 +10,17 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Port Connectivity Checks: "ram_16x4:memoria"
+ 11. Port Connectivity Checks: "comparador_85:comparador"
+ 12. Port Connectivity Checks: "contador_163:contador"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +44,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                 ;
-+-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Jan 13 15:09:45 2023              ;
-; Quartus Prime Version       ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
-; Revision Name               ; circuito_exp2_ativ2                            ;
-; Top-level Entity Name       ; circuito_exp2_ativ2                            ;
-; Family                      ; Cyclone V                                      ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                      ;
-; Total registers             ; N/A until Partition Merge                      ;
-; Total pins                  ; N/A until Partition Merge                      ;
-; Total virtual pins          ; N/A until Partition Merge                      ;
-; Total block memory bits     ; N/A until Partition Merge                      ;
-; Total PLLs                  ; N/A until Partition Merge                      ;
-; Total DLLs                  ; N/A until Partition Merge                      ;
-+-----------------------------+------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Jan 13 19:53:29 2023          ;
+; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                   ; circuito_exp2_ativ2                            ;
+; Top-level Entity Name           ; circuito_exp2_ativ2                            ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 68                                             ;
+; Total pins                      ; 18                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -148,11 +163,152 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                             ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                      ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+; circuito_exp2_ativ2.vhd          ; yes             ; User VHDL File  ; /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd ;         ;
+; comparador_85.vhd                ; yes             ; User VHDL File  ; /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/comparador_85.vhd       ;         ;
+; ram_16x4.vhd                     ; yes             ; User VHDL File  ; /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/ram_16x4.vhd            ;         ;
+; contador_163.vhd                 ; yes             ; User VHDL File  ; /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/contador_163.vhd        ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 54          ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 60          ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 20          ;
+;     -- 5 input functions                    ; 19          ;
+;     -- 4 input functions                    ; 2           ;
+;     -- <=3 input functions                  ; 19          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 68          ;
+;                                             ;             ;
+; I/O pins                                    ; 18          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 68          ;
+; Total fan-out                               ; 478         ;
+; Average fan-out                             ; 2.91        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name         ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------------+--------------+
+; |circuito_exp2_ativ2          ; 60 (0)              ; 68 (0)                    ; 0                 ; 0          ; 18   ; 0            ; |circuito_exp2_ativ2                          ; circuito_exp2_ativ2 ; work         ;
+;    |comparador_85:comparador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |circuito_exp2_ativ2|comparador_85:comparador ; comparador_85       ; work         ;
+;    |contador_163:contador|    ; 6 (6)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |circuito_exp2_ativ2|contador_163:contador    ; contador_163        ; work         ;
+;    |ram_16x4:memoria|         ; 52 (52)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |circuito_exp2_ativ2|ram_16x4:memoria         ; ram_16x4            ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 68    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 68    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |circuito_exp2_ativ2|contador_163:contador|IQ[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "ram_16x4:memoria" ;
++------+-------+----------+--------------------+
+; Port ; Type  ; Severity ; Details            ;
++------+-------+----------+--------------------+
+; ce   ; Input ; Info     ; Stuck at GND       ;
++------+-------+----------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "comparador_85:comparador"                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; i_agtb ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_altb ; Input  ; Info     ; Stuck at GND                                                                        ;
+; i_aeqb ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; o_agtb ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; o_altb ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "contador_163:contador" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; ld   ; Input ; Info     ; Stuck at VCC            ;
+; enp  ; Input ; Info     ; Stuck at VCC            ;
+; d    ; Input ; Info     ; Stuck at GND            ;
++------+-------+----------+-------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 68                          ;
+;     ENA               ; 68                          ;
+; arriav_lcell_comb     ; 61                          ;
+;     normal            ; 61                          ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 2                           ;
+;         5 data inputs ; 19                          ;
+;         6 data inputs ; 20                          ;
+; boundary_port         ; 18                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.39                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,30 +317,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Fri Jan 13 15:09:35 2023
+    Info: Processing started: Fri Jan 13 19:53:20 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off circuito_exp2_ativ2 -c circuito_exp2_ativ2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(83) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 83
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(83) near text "{";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 83
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(83) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 83
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(110) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 110
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(110) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 110
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(111) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 111
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(111) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 111
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(112) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 112
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(112) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 112
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(113) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 113
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(113) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 113
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(114) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 114
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(114) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 114
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(115) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 115
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(115) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 115
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(128) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 128
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(128) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 128
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(129) near text { File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 129
-Error (10500): VHDL syntax error at circuito_exp2_ativ2.vhd(129) near text } File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 129
-Info (12021): Found 0 design units, including 0 entities, in source file circuito_exp2_ativ2.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file circuito_exp2_ativ2.vhd
+    Info (12022): Found design unit 1: circuito_exp2_ativ2-estrutural File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 42
+    Info (12023): Found entity 1: circuito_exp2_ativ2 File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file hexa7seg.vhd
     Info (12022): Found design unit 1: hexa7seg-comportamental File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/hexa7seg.vhd Line: 31
     Info (12023): Found entity 1: hexa7seg File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/hexa7seg.vhd Line: 24
@@ -198,10 +337,23 @@ Info (12021): Found 3 design units, including 1 entities, in source file ram_16x
 Info (12021): Found 2 design units, including 1 entities, in source file contador_163.vhd
     Info (12022): Found design unit 1: contador_163-comportamental File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/contador_163.vhd Line: 32
     Info (12023): Found entity 1: contador_163 File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/contador_163.vhd Line: 19
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 19 errors, 1 warning
-    Error: Peak virtual memory: 465 megabytes
-    Error: Processing ended: Fri Jan 13 15:09:45 2023
-    Error: Elapsed time: 00:00:10
-    Error: Total CPU time (on all processors): 00:00:24
+Info (12127): Elaborating entity "circuito_exp2_ativ2" for the top level hierarchy
+Info (12128): Elaborating entity "contador_163" for hierarchy "contador_163:contador" File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 99
+Info (12128): Elaborating entity "comparador_85" for hierarchy "comparador_85:comparador" File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 111
+Info (12129): Elaborating entity "ram_16x4" using architecture "A:ram_mif" for hierarchy "ram_16x4:memoria" File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/circuito_exp2_ativ2.vhd Line: 129
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "ram_16x4:memoria|memoria" is uninferred due to asynchronous read logic File: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/02/quartus/ram_16x4.vhd Line: 42
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 126 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 108 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 507 megabytes
+    Info: Processing ended: Fri Jan 13 19:53:29 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:24
 
 

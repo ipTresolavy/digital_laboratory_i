@@ -55,7 +55,7 @@ architecture estrutural of circuito_exp2_ativ2 is
         enp   : in  std_logic;
         D     : in  std_logic_vector (3 downto 0);
         Q     : out std_logic_vector (3 downto 0);
-        rco   : out std_logic 
+        rco   : out std_logic
     );
   end component;
 
@@ -80,7 +80,12 @@ architecture estrutural of circuito_exp2_ativ2 is
 
   component ram_16x4 is
     port (
-        {...completar codigo...}
+       clk          : in  std_logic;
+       endereco     : in  std_logic_vector(3 downto 0);
+       dado_entrada : in  std_logic_vector(3 downto 0);
+       we           : in  std_logic;
+       ce           : in  std_logic;
+       dado_saida   : out std_logic_vector(3 downto 0)
     );
   end component;
 
@@ -88,9 +93,9 @@ begin
 
   -- sinais de controle ativos em alto
   -- sinais dos componentes ativos em baixo
-  s_not_zera    <= not zera;
+  s_not_zera    <= zera;
   s_not_escreve <= not escreve;
-  
+
   contador: contador_163
     port map (
         clock => clock,
@@ -107,12 +112,12 @@ begin
     port map (
         i_A3   => s_dado(3),
         i_B3   => chaves(3),
-        i_A2   => {...completar codigo...}
-        i_B2   => {...completar codigo...}
-        i_A1   => {...completar codigo...}
-        i_B1   => {...completar codigo...}
-        i_A0   => {...completar codigo...}
-        i_B0   => {...completar codigo...}
+        i_A2   => s_dado(2),
+        i_B2   => chaves(2),
+        i_A1   => s_dado(1),
+        i_B1   => chaves(1),
+        i_A0   => s_dado(0),
+        i_B0   => chaves(0),
         i_AGTB => '0',
         i_ALTB => '0',
         i_AEQB => '1',
@@ -121,18 +126,17 @@ begin
         o_AEQB => igual
     );
 
-  -- memoria: entity work.ram_16x4 (ram_mif)  -- usar esta linha para Intel Quartus
-  memoria: entity work.ram_16x4 (ram_modelsim) -- usar arquitetura para ModelSim
+  memoria: entity work.ram_16x4 (ram_mif) -- usar arquitetura para ModelSim
     port map (
        clk          => clock,
-       endereco     => {...completar codigo...}
-       dado_entrada => {...completar codigo...}
-       we           => {...completar codigo...} -- we ativo em baixo
+       endereco     => s_endereco,
+       dado_entrada => chaves,
+       we           => s_not_escreve, -- we ativo em baixo
        ce           => '0',
-       dado_saida   => {...completar codigo...}
+       dado_saida   => s_dado
     );
 
   db_contagem <= s_endereco;
-  db_memoria  <= {...completar codigo...}
+  db_memoria  <= s_dado;
 
 end architecture estrutural;

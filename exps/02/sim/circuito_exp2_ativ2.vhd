@@ -130,14 +130,14 @@ begin
   memoria: entity work.ram_16x4 (ram_modelsim) -- usar arquitetura para ModelSim
     port map (
        clk          => clock,
-       endereco     => s_endereco
-       dado_entrada => {...completar codigo...}
-       we           => {...completar codigo...} -- we ativo em baixo
+       endereco     => s_endereco,
+       dado_entrada => chaves,
+       we           => s_not_escreve, -- we ativo em baixo
        ce           => '0',
-       dado_saida   => {...completar codigo...}
+       dado_saida   => s_dado
     );
 
   db_contagem <= s_endereco;
-  db_memoria  <= {...completar codigo...}
+  db_memoria  <= s_dado;
 
 end architecture estrutural;
