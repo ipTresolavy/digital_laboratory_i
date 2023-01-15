@@ -370,3 +370,6 @@ run -all
 #    Time: 0 ns  Iteration: 0  Instance: /circuito_exp2_ativ2_tb/dut/memoria
 # ** Note: Fim da simulacao
 #    Time: 1460 ns  Iteration: 0  Instance: /circuito_exp2_ativ2_tb
+# Break key hit
+# End time: 20:24:52 on Jan 13,2023, Elapsed time: 1:12:35
+# Errors: 0, Warnings: 1
