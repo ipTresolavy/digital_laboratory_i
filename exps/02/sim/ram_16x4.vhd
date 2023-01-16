@@ -19,6 +19,7 @@
 --                                           arquitetura para
 --                                           simulacao com ModelSim
 --     07/01/2023  2.1.1   Edson Midorikawa  revisao
+--     16/01/2023  2.1.2   Igor Tresolavy    revisao
 -------------------------------------------------------------------
 
 library ieee;
