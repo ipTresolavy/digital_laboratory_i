@@ -1,0 +1,14 @@
+Algoritmo: um sistema digital simples
+ entradas: iniciar, chaves
+ saídas: pronto
+ depuração: chaves, contagem, memória, estado, igual, iniciar
+ {
+    while (verdadeiro) {
+        espera acionamento do sinal iniciar
+        inicia circuito para condições iniciais
+        while (não atingiu o último dado) {
+            compara chaves de entrada com dados armazenados e atualiza saídas
+            incrementa contador interno
+        }
+    ativa saída pronto
+ }

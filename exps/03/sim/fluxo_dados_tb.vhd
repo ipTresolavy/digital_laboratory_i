@@ -21,7 +21,6 @@ entity fluxo_dados_tb is
 end entity;
 
 architecture tb of fluxo_dados_tb is
-
   -- Componente a ser testado (Device Under Test -- DUT)
   component fluxo_dados is
       port (
@@ -39,7 +38,6 @@ architecture tb of fluxo_dados_tb is
           db_chaves           : out std_logic_vector (3 downto 0)
       );
     end component;
-
     -- Declaração de sinais para conectar o componente a ser testado (DUT)
     --   valores iniciais para fins de simulacao (GHDL ou ModelSim)
     signal clock_in         : std_logic := '0';
@@ -86,7 +84,6 @@ architecture tb of fluxo_dados_tb is
     -- Identificacao de casos de teste
     signal caso  : integer := 0;
     signal vezes : integer := 0;
-
     -- Configurações do clock
     signal keep_simulating : std_logic := '0'; -- delimita o tempo de geração do clock
     constant clockPeriod: time := 20 ns;
@@ -118,7 +115,6 @@ begin
     -- geracao dos sinais de entrada (estimulos)
     stimulus: process is
     begin
-
         assert false report "Inicio da simulacao" severity note;
         keep_simulating <= '1';
 
@@ -153,7 +149,6 @@ begin
         ---- final dos casos de teste  da simulacao
         keep_simulating <= '0';
         assert false report "Fim da simulacao" severity note;
-
         wait; -- fim da simulação: aguarda indefinidamente
     end process;
 

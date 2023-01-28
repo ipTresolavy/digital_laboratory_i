@@ -1,0 +1,9 @@
+output_files
+db
+work/
+*.qws
+*.qarlog
+*.archive.rpt
+*.txt
+incremental_db
+simulation/
