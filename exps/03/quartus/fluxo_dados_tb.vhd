@@ -2,11 +2,11 @@
 -- Arquivo   : fluxo_dados_tb.vhd
 -- Projeto   : Experiencia 3 - Projeto de uma Unidade de Controle
 --------------------------------------------------------------------
--- Descricao : testbench para fluxo de dados 
+-- Descricao : testbench para fluxo de dados
 --
 --             1) plano de teste: 9 casos de teste
 --
--- 
+--
 --------------------------------------------------------------------
 -- Revisoes  :
 --     Data        Versao  Autor             Descricao
@@ -21,7 +21,6 @@ entity fluxo_dados_tb is
 end entity;
 
 architecture tb of fluxo_dados_tb is
-  
   -- Componente a ser testado (Device Under Test -- DUT)
   component fluxo_dados is
       port (
@@ -39,7 +38,6 @@ architecture tb of fluxo_dados_tb is
           db_chaves           : out std_logic_vector (3 downto 0)
       );
     end component;
-    
     -- Declaração de sinais para conectar o componente a ser testado (DUT)
     --   valores iniciais para fins de simulacao (GHDL ou ModelSim)
     signal clock_in         : std_logic := '0';
@@ -47,25 +45,25 @@ architecture tb of fluxo_dados_tb is
     signal contac_in        : std_logic := '0';
     signal escrevem_in      : std_logic := '0';
     signal zerar_in         : std_logic := '0';
-    signal registrar_in     : std_logic := '0';  
+    signal registrar_in     : std_logic := '0';
     signal chaves_in        : std_logic_vector (3 downto 0) := "0000";
     signal igual_out        : std_logic := '0';
     signal fimc_out         : std_logic := '0';
     signal db_contagem_out  : std_logic_vector (3 downto 0) := "0000";
     signal db_memoria_out   : std_logic_vector (3 downto 0) := "0000";
     signal db_chaves_out    : std_logic_vector (3 downto 0) := "0000";
-  
+
     -- Array de casos de teste
     type caso_teste_type is record
-        id        : natural; 
+        id        : natural;
         zerac     : std_logic;
         contac    : std_logic;
         zerar     : std_logic;
         registrar : std_logic;
         chaves    : std_logic_vector (3 downto 0);
-        vezes     : integer;     
+        vezes     : integer;
     end record;
-    
+
     type casos_teste_array is array (natural range <>) of caso_teste_type;
     constant casos_teste : casos_teste_array :=
         (--  id   contador  registrador  chaves  vezes
@@ -86,17 +84,16 @@ architecture tb of fluxo_dados_tb is
     -- Identificacao de casos de teste
     signal caso  : integer := 0;
     signal vezes : integer := 0;
-  
     -- Configurações do clock
     signal keep_simulating : std_logic := '0'; -- delimita o tempo de geração do clock
     constant clockPeriod: time := 20 ns;
 
 
 begin
- 
+
     -- Conecta DUT (Device Under Test)
-    dut: fluxo_dados 
-         port map( 
+    dut: fluxo_dados
+         port map(
              clock               => clock_in,
              zeraC               => zerac_in,
              contaC              => contac_in,
@@ -111,14 +108,13 @@ begin
              db_chaves           => db_chaves_out
          );
 
-    -- Gerador de clock: executa enquanto 'keep_simulating = 1', com o período especificado. 
+    -- Gerador de clock: executa enquanto 'keep_simulating = 1', com o período especificado.
     -- Quando keep_simulating=0, clock é interrompido, bem como a simulação de eventos
     clock_in <= (not clock_in) and keep_simulating after clockPeriod/2;
 
     -- geracao dos sinais de entrada (estimulos)
     stimulus: process is
     begin
-    
         assert false report "Inicio da simulacao" severity note;
         keep_simulating <= '1';
 
@@ -130,6 +126,7 @@ begin
             caso       <= casos_teste(i).id;
             chaves_in  <= casos_teste(i).chaves;
             vezes      <= casos_teste(i).vezes;
+            assert caso = casos_teste(i).id;
             assert false report "vezes " & integer'image(casos_teste(i).vezes) severity note;
             -- repete por "vezes" vezes
             for j in 1 to casos_teste(i).vezes loop
@@ -152,7 +149,6 @@ begin
         ---- final dos casos de teste  da simulacao
         keep_simulating <= '0';
         assert false report "Fim da simulacao" severity note;
-        
         wait; -- fim da simulação: aguarda indefinidamente
     end process;
 
