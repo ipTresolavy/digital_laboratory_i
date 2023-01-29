@@ -2,13 +2,13 @@
 -- Arquivo   : unidade_controle.vhd
 -- Projeto   : Experiencia 3 - Projeto de uma unidade de controle
 --------------------------------------------------------------------
--- Descricao : unidade de controle 
+-- Descricao : unidade de controle
 --
 --             1) codificação VHDL (maquina de Moore)
 --
 --             2) definicao de valores da saida de depuracao
 --                db_estado
--- 
+--
 --------------------------------------------------------------------
 -- Revisoes  :
 --     Data        Versao  Autor             Descricao
@@ -19,10 +19,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity unidade_controle is 
-    port ( 
-        clock     : in  std_logic; 
-        reset     : in  std_logic; 
+entity unidade_controle is
+    port (
+        clock     : in  std_logic;
+        reset     : in  std_logic;
         iniciar   : in  std_logic;
         fimC      : in  std_logic;
         zeraC     : out std_logic;
@@ -45,7 +45,7 @@ begin
         if reset='1' then
             Eatual <= inicial;
         elsif clock'event and clock = '1' then
-            Eatual <= Eprox; 
+            Eatual <= Eprox;
         end if;
     end process;
 
@@ -56,7 +56,8 @@ begin
         registra    when  Eatual=preparacao else
         comparacao  when  Eatual=registra else
         proximo     when  Eatual=comparacao and fimC='0' else
-        fim         when  Eatual=comparacao and fimC='1' else
+        fim         when  Eatual=proximo and fimC='1' else
+        --fim         when  Eatual=comparacao and fimC='1' else
         registra    when  Eatual=proximo else
         inicial     when  Eatual=fim else
         inicial;
@@ -65,11 +66,11 @@ begin
     with Eatual select
         zeraC <=      '1' when preparacao,
                       '0' when others;
-    
+
     with Eatual select
         zeraR <=      '1' when inicial | preparacao,
                       '0' when others;
-    
+
     with Eatual select
         registraR <=  '1' when registra,
                       '0' when others;
@@ -77,11 +78,11 @@ begin
     with Eatual select
         contaC <=     '1' when proximo,
                       '0' when others;
-    
+
     with Eatual select
         pronto <=     '1' when fim,
                       '0' when others;
-    
+
     -- saida de depuracao (db_estado)
     with Eatual select
         db_estado <= "0000" when inicial,     -- 0
