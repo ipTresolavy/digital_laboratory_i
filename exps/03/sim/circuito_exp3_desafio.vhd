@@ -8,33 +8,31 @@
 --     Data        Versao  Autor                           Descricao
 --     28/01/2022  1.0     Thiago Souza                    versao inicial
 --     29/01/2022  1.1     Igor Pontes Tresolavy           versao inicial
+--     30/01/2022  2.0     Igor Pontes Tresolavy           versao inicial
 --------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity circuito_exp3 is
+entity circuito_exp3_desafio is
     port (
         clock       : in std_logic;
         reset       : in std_logic;
         iniciar     : in std_logic;
         chaves      : in std_logic_vector (3 downto 0);
         pronto      : out std_logic;
+        acertou     : out std_logic;
+        errou       : out std_logic;
         db_igual    : out std_logic;
         db_iniciar  : out std_logic;
         db_contagem : out std_logic_vector (6 downto 0);
         db_memoria  : out std_logic_vector (6 downto 0);
         db_chaves   : out std_logic_vector (6 downto 0);
-        db_estado   : out std_logic_vector (6 downto 0);
-		db_zeraC	  : out std_logic;
-		db_contaC   : out std_logic;
-		db_fimC	  : out std_logic;
-		db_zeraR    : out std_logic;
-		db_registraR: out std_logic
+        db_estado   : out std_logic_vector (6 downto 0)
     );
 end entity;
 
-architecture toplevel of circuito_exp3 is
+architecture toplevel of circuito_exp3_desafio is
 
     component unidade_controle
         port (
@@ -80,6 +78,7 @@ architecture toplevel of circuito_exp3 is
     signal s_zeraR : std_logic;
     signal s_registraR : std_logic;
     signal s_fimC : std_logic;
+    signal s_chavesIgualMemoria : std_logic;
 
     signal s_db_contagem : std_logic_vector(3 downto 0);
     signal s_db_memoria : std_logic_vector(3 downto 0);
@@ -97,24 +96,27 @@ begin
             zeraR => s_zeraR,
             registraR => s_registraR,
             chaves => chaves,
-            chavesIgualMemoria => db_igual,
+            chavesIgualMemoria => s_chavesIgualMemoria,
             fimC => s_fimC,
             db_contagem => s_db_contagem,
             db_memoria => s_db_memoria,
             db_chaves => s_db_chaves
         );
 
-    UC: unidade_controle
+        UC: entity work.unidade_controle(fsm_desafio)
         port map (
             clock => clock,
             reset => reset,
             iniciar => iniciar,
             fimC => s_fimC,
+            chavesIgualMemoria => s_chavesIgualMemoria,
             zeraC => s_zeraC,
             contaC => s_contaC,
             zeraR => s_zeraR,
             registraR => s_registraR,
             pronto => pronto,
+            acertou => acertou,
+            errou => errou,
             db_estado => s_db_estado
         );
 
@@ -143,10 +145,11 @@ begin
         );
 
     db_iniciar <= iniciar;
-	 db_zeraC <= s_zeraC;
-	 db_contaC <= s_contaC;
-	 db_fimC <= s_fimC;
-	 db_zeraR <= s_zeraR;
-	 db_registraR <= s_registraR;
+    db_igual <= s_chavesIgualMemoria;
+	--db_zeraC <= s_zeraC;
+	--db_contaC <= s_contaC;
+	--db_fimC <= s_fimC;
+	--db_zeraR <= s_zeraR;
+	--db_registraR <= s_registraR;
 
 end toplevel;

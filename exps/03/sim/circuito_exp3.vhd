@@ -99,17 +99,20 @@ begin
             db_chaves => s_db_chaves
         );
 
-    UC: unidade_controle
+        UC: entity work.unidade_controle(fsm)
         port map (
             clock => clock,
             reset => reset,
             iniciar => iniciar,
             fimC => s_fimC,
+            chavesIgualMemoria => open,
             zeraC => s_zeraC,
             contaC => s_contaC,
             zeraR => s_zeraR,
             registraR => s_registraR,
             pronto => pronto,
+            acertou => open,
+            errou => open,
             db_estado => s_db_estado
         );
 

@@ -55,10 +55,10 @@ begin
         preparacao  when  Eatual=inicial and iniciar='1' else
         registra    when  Eatual=preparacao else
         comparacao  when  Eatual=registra else
-        proximo     when  Eatual=comparacao and fimC='0' else
+        proximo     when  Eatual=comparacao else
         fim         when  Eatual=proximo and fimC='1' else
         --fim         when  Eatual=comparacao and fimC='1' else
-        registra    when  Eatual=proximo else
+        registra    when  Eatual=proximo and fimC='0' else
         inicial     when  Eatual=fim else
         inicial;
 
