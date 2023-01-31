@@ -38,7 +38,7 @@ entity unidade_controle is
 end entity;
 
 architecture fsm_desafio of unidade_controle is
-    type t_estado is (inicial, preparacao, registra, comparacao, proximo, fim);
+    type t_estado is (inicial, preparacao, registra, comparacao, proximo, fimErrou, fimAcertou);
     signal Eatual, Eprox: t_estado;
 begin
 
@@ -59,10 +59,11 @@ begin
         registra    when  Eatual=preparacao else
         comparacao  when  Eatual=registra else
         proximo     when  Eatual=comparacao and chavesIgualMemoria='1' else
-        fim         when  Eatual=proximo and fimC='1' else
-        fim         when  Eatual=comparacao and chavesIgualMemoria='0' else
+        fimAcertou  when  Eatual=proximo and fimC='1' else
+        fimErrou    when  Eatual=comparacao and chavesIgualMemoria='0' else
         registra    when  Eatual=proximo and fimC='0' else
-        inicial     when  Eatual=fim else
+        inicial     when  Eatual=fimErrou else
+        inicial     when  Eatual=fimAcertou else
         inicial;
 
     -- logica de saída (maquina de Moore)
@@ -83,13 +84,13 @@ begin
                       '0' when others;
 
     with Eatual select
-        pronto <=     '1' when fim,
+        pronto <=     '1' when fimAcertou | fimErrou,
                       '0' when others;
 
-    acertou <= '1' when Eatual=fim and chavesIgualMemoria='1' else
+    acertou <= '1' when Eatual=fimAcertou else
                '0';
 
-    errou <= '1' when Eatual=fim and chavesIgualMemoria='0' else
+    errou <= '1' when Eatual=fimErrou else
              '0';
 
     -- saida de depuracao (db_estado)
@@ -99,7 +100,8 @@ begin
                      "0100" when registra,    -- 4
                      "0101" when comparacao,  -- 5
                      "0110" when proximo,     -- 6
-                     "1100" when fim,         -- C
+                     "1100" when fimErrou,    -- C
+                     "1101" when fimAcertou,  -- D
                      "1111" when others;      -- F
 
 end architecture fsm_desafio;

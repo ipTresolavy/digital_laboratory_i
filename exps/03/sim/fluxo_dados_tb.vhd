@@ -66,7 +66,7 @@ architecture tb of fluxo_dados_tb is
 
     type casos_teste_array is array (natural range <>) of caso_teste_type;
     constant casos_teste : casos_teste_array :=
-        (--  id   contador  registrador  chaves  vezes
+        ( --  id   contador  registrador  chaves  vezes
             ( 0,  '0', '0',  '0', '0',   "0000",  1),  -- c.i.
             ( 1,  '1', '0',  '1', '0',   "0000",  1),  -- teste 1  - zera contador e registrador
             ( 2,  '0', '0',  '0', '0',   "0001",  1),  -- teste 2  - chaves=0001, endereco=0000, dado=0001, igual=0

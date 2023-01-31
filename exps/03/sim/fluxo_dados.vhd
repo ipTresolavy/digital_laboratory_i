@@ -125,7 +125,6 @@ begin
         rco   => fimC
     );
 
-  -- memoria: entity work.ram_16x4 (ram_mif)  -- usar esta linha para Intel Quartus
   memoria: entity work.ram_16x4 (ram_modelsim) -- usar arquitetura para ModelSim
     port map (
        clk          => clock,
