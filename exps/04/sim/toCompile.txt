@@ -1,0 +1,11 @@
+hexa7seg.vhd
+contador_163.vhd
+ram_16x4.vhd
+comparador_85.vhd
+registrador_n.vhd
+edge_detector.vhd
+fluxo_dados.vhd
+unidade_controle.vhd
+circuito_exp4.vhd
+circuito_exp4_tb1.vhd
+circuito_exp4_tb2.vhd

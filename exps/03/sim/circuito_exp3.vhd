@@ -105,7 +105,7 @@ begin
             reset => reset,
             iniciar => iniciar,
             fimC => s_fimC,
-            chavesIgualMemoria => open,
+            chavesIgualMemoria => db_igual,
             zeraC => s_zeraC,
             contaC => s_contaC,
             zeraR => s_zeraR,

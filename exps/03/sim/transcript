@@ -406,3 +406,5 @@ run -all
 #    Time: 1440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
 # ** Note: Fim da simulacao
 #    Time: 1500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
+# End time: 21:11:44 on Jan 31,2023, Elapsed time: 21:00:10
+# Errors: 29, Warnings: 1
