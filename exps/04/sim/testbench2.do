@@ -8,6 +8,7 @@ add wave -noupdate -color Cyan -height 35 /circuito_exp4_tb2/chaves_in
 add wave -noupdate -divider {Deteccao de Jogada}
 add wave -noupdate -color White -height 35 /circuito_exp4_tb2/tem_jogada_out
 add wave -noupdate -color White -height 35 /circuito_exp4_tb2/jogadafeita_out
+add wave -noupdate -height 35 /circuito_exp4_tb2/dut/s_jogada
 add wave -noupdate -divider Depuracao
 add wave -noupdate -color White -height 35 /circuito_exp4_tb2/igual_out
 add wave -noupdate -divider Resultado
@@ -24,7 +25,7 @@ add wave -noupdate -color Orange -height 35 /circuito_exp4_tb2/dut/FD/s_chaves
 add wave -noupdate -divider UC
 add wave -noupdate -color Magenta -height 35 /circuito_exp4_tb2/dut/UC/Eatual
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2850 ns} 0}
+WaveRestoreCursors {{Cursor 1} {0 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 278
 configure wave -valuecolwidth 100
