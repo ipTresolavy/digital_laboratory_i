@@ -11,3 +11,4 @@ unidade_controle.vhd
 circuito_jogo_base.vhd
 circuito_jogo_base_tb1.vhd
 circuito_jogo_base_tb2.vhd
+circuito_jogo_base_tb3.vhd
