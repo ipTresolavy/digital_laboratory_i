@@ -19,13 +19,13 @@ use ieee.std_logic_1164.all;
 use std.textio.all;
 
 -- entidade do testbench
-entity circuito_jogo_base_tb1 is
+entity circuito_jogo_desafio_memoria_tb1 is
 end entity;
 
-architecture tb of circuito_jogo_base_tb1 is
+architecture tb of circuito_jogo_desafio_memoria_tb1 is
 
   -- Componente a ser testado (Device Under Test -- DUT)
-  component circuito_jogo_base
+  component circuito_jogo_desafio_memoria
     port (
         clock                  : in std_logic;
         reset                  : in std_logic;
@@ -75,7 +75,7 @@ architecture tb of circuito_jogo_base_tb1 is
 
   -- Configurações do clock
   signal keep_simulating: std_logic := '0'; -- delimita o tempo de geração do clock
-  constant clockPeriod : time := 1 ms;     -- frequencia 50MHz
+  constant clockPeriod : time := 1 ms;     -- frequencia 1kHz
 
   -- Identificacao de casos de teste
   signal caso : integer := 0;
@@ -265,7 +265,7 @@ begin
   clk_in <= (not clk_in) and keep_simulating after clockPeriod/2;
 
   ---- DUT para Simulacao
-  dut: circuito_jogo_base
+  dut: circuito_jogo_desafio_memoria
        port map
        (
           clock           => clk_in,

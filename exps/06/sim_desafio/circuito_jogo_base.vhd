@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity circuito_jogo_base is
+entity circuito_jogo_desafio_memoria is
     port (
         clock                  : in std_logic;
         reset                  : in std_logic;
@@ -25,7 +25,7 @@ entity circuito_jogo_base is
     );
 end entity;
 
-architecture toplevel of circuito_jogo_base is
+architecture toplevel of circuito_jogo_desafio_memoria is
 
     component fluxo_dados is
         port (
