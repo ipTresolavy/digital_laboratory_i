@@ -257,6 +257,7 @@ architecture tb of circuito_jogo_base_tb1 is
         (131 , '0', '0', "0010", 10, 10),
         (132 , '0', '0', "0010", 10, 10),
         (133 , '0', '0', "0010", 10, 10)
+    )
 
 begin
   -- Gerador de clock: executa enquanto 'keep_simulating = 1', com o período especificado.
