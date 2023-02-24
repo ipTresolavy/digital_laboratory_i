@@ -21,6 +21,7 @@
 --     10/02/2022  1.1.1   Edson Midorikawa  arquivo parcial
 --     10/02/2022  1.1.1   Edson Midorikawa  arquivo parcial
 --     04/02/2023  2.0     Igor Tresolavy    revisao exp4
+--     04/02/2023  3.0     Igor Tresolavy    revisao exp5
 --------------------------------------------------------------------
 --
 
@@ -30,34 +31,45 @@ use ieee.math_real.all;
 
 entity fluxo_dados is
     port (
-        clock         : in  std_logic;
-        zeraC         : in  std_logic;
-        zeraM         : in  std_logic;
-        contaC        : in  std_logic;
-        contaM        : in  std_logic;
-        escreveM      : in  std_logic;
-        zeraR         : in  std_logic;
-        registraR     : in  std_logic;
-        chaves        : in  std_logic_vector (3 downto 0);
-        igual         : out std_logic;
-        fimC          : out std_logic;
-        jogada_feita  : out std_logic;
-        timeout       : out std_logic;
-        db_tem_jogada : out std_logic;
-        db_contagem   : out std_logic_vector (3 downto 0);
-        db_memoria    : out std_logic_vector (3 downto 0);
-        db_jogada     : out std_logic_vector (3 downto 0)
+        clock               : in  std_logic;
+        zeraE               : in  std_logic;
+        zeraCR              : in  std_logic;
+        zeraT               : in  std_logic;
+        zeraA               : in  std_logic;
+        contaE              : in  std_logic;
+        contaCR             : in  std_logic;
+        contaT              : in  std_logic;
+        contaA              : in  std_logic;
+        escreveM            : in  std_logic;
+        zeraR               : in  std_logic;
+        registraR           : in  std_logic;
+        botoes              : in  std_logic_vector (3 downto 0);
+        controla_led        : in  std_logic;
+        jogada_correta      : out std_logic;
+        enderecoIgualRodada : out std_logic;
+        fimCR               : out std_logic;
+        fimA                : out std_logic;
+        tem_jogada          : out std_logic;
+        fimT                : out std_logic;
+        leds                : out std_logic_vector(3 downto 0);
+        db_tem_jogada       : out std_logic;
+        db_contagem         : out std_logic_vector (3 downto 0);
+        db_memoria          : out std_logic_vector (3 downto 0);
+        db_jogada_feita     : out std_logic_vector (3 downto 0);
+        db_rodada           : out std_logic_vector (3 downto 0)
     );
 end entity;
 
 architecture estrutural of fluxo_dados is
 
-  signal s_endereco    : std_logic_vector (3 downto 0);
-  signal s_dado        : std_logic_vector (3 downto 0);
-  signal s_not_zeraC   : std_logic;
-  signal s_not_escreve : std_logic;
-  signal s_chaves      : std_logic_vector(3 downto 0);
-  signal s_chave_acionada : std_logic;
+  signal s_endereco       : std_logic_vector (3 downto 0);
+  signal s_dado           : std_logic_vector (3 downto 0);
+  signal s_rodada         : std_logic_vector (3 downto 0);
+  signal s_not_zeraE      : std_logic;
+  signal s_not_zeraCR     : std_logic;
+  signal s_not_escreve    : std_logic;
+  signal s_jogada         : std_logic_vector(3 downto 0);
+  signal s_botao_acionado : std_logic;
 
   component contador_163
     port (
@@ -139,88 +151,155 @@ architecture estrutural of fluxo_dados is
       );
   end component contador_m;
 
+  component mux_2x1 is
+    generic (
+        constant bit_width: integer := 4
+    );
+    port(
+        a      : in  std_logic_vector(bit_width-1 downto 0);
+        b      : in  std_logic_vector(bit_width-1 downto 0);
+        sel    : in  std_logic;
+        output : out std_logic_vector(bit_width-1 downto 0)
+    );
+    end component mux_2x1;
+
 begin
 
   -- sinais de controle ativos em alto
   -- sinais dos componentes ativos em baixo
-  s_not_zeraC   <= not zeraC;
+  s_not_zeraE   <= not zeraE;
+  s_not_zeraCR  <= not zeraCR;
   s_not_escreve <= not escreveM;
-  s_chave_acionada <= chaves(0) or chaves(1) or chaves(2) or chaves(3);
+  s_botao_acionado <= botoes(0) or botoes(1) or botoes(2) or botoes(3);
 
-  contador: contador_163
+  ContEnd: contador_163
     port map (
         clock => clock,
-        clr   => s_not_zeraC,  -- clr ativo em baixo
+        clr   => s_not_zeraE,  -- clr ativo em baixo
         ld    => '1',
         ent   => '1',
-        enp   => contaC,
+        enp   => contaE,
         D     => "0000",
         Q     => s_endereco,
-        rco   => fimC
+        rco   => open
     );
 
-  memoria: entity work.ram_16x4 (ram_mif)  -- usar esta linha para Intel Quartus
+  ContRod: contador_163
+    port map (
+        clock => clock,
+        clr   => s_not_zeraCR,  -- clr ativo em baixo
+        ld    => '1',
+        ent   => '1',
+        enp   => contaCR,
+        D     => "0000",
+        Q     => s_rodada,
+        rco   => fimCR
+    );
+
+  MemJog: entity work.ram_16x4 (ram_mif)
     port map (
        clk          => clock,
        endereco     => s_endereco,
-       dado_entrada => s_chaves,
+       dado_entrada => s_jogada,
        we           => s_not_escreve, -- we ativo em baixo
        ce           => '0',
        dado_saida   => s_dado
     );
 
-  registrador: registrador_n
+  RegChv: registrador_n
     generic map (4)
     port map (
         clock  => clock,
         clear  => zeraR,
         enable => registraR,
-        D      => chaves,
-        Q      => s_chaves
+        D      => botoes,
+        Q      => s_jogada
     );
 
-  comparador: comparador_85
+  CompJog: comparador_85
     port map (
         i_A3   => s_dado(3),
-        i_B3   => s_chaves(3),
+        i_B3   => s_jogada(3),
         i_A2   => s_dado(2),
-        i_B2   => s_chaves(2),
+        i_B2   => s_jogada(2),
         i_A1   => s_dado(1),
-        i_B1   => s_chaves(1),
+        i_B1   => s_jogada(1),
         i_A0   => s_dado(0),
-        i_B0   => s_chaves(0),
+        i_B0   => s_jogada(0),
         i_AGTB => '0',
         i_ALTB => '0',
         i_AEQB => '1',
         o_AGTB => open, -- saidas nao usadas
         o_ALTB => open,
-        o_AEQB => igual
+        o_AEQB => jogada_correta
     );
 
-   detecta_jogada: edge_detector
+  CompEnd: comparador_85
+    port map (
+        i_A3   => s_rodada(3),
+        i_B3   => s_endereco(3),
+        i_A2   => s_rodada(2),
+        i_B2   => s_endereco(2),
+        i_A1   => s_rodada(1),
+        i_B1   => s_endereco(1),
+        i_A0   => s_rodada(0),
+        i_B0   => s_endereco(0),
+        i_AGTB => '0',
+        i_ALTB => '0',
+        i_AEQB => '1',
+        o_AGTB => open, -- saidas nao usadas
+        o_ALTB => open,
+        o_AEQB => enderecoIgualRodada
+    );
+
+   TemJog: edge_detector
        port map (
         clock => clock,
-        reset => zeraC,
-        sinal => s_chave_acionada,
-        pulso => jogada_feita
+        reset => zeraCR,
+        sinal => s_botao_acionado,
+        pulso => tem_jogada
     );
 
-    contador_modulo: contador_m
-      generic map (3000)
+    Timer: contador_m
+      generic map (5000)
       port map
       (
         clock => clock,
-        zera_as => zeraM,
+        zera_as => zeraT,
         zera_s => '0',
-        conta => contaM,
+        conta => contaT,
         Q => open,
-        fim => timeout,
+        fim => fimT,
         meio => open
       );
 
+    TimerA: contador_m
+      generic map (1000)
+      port map
+      (
+        clock => clock,
+        zera_as => zeraA,
+        zera_s => '0',
+        conta => contaA,
+        Q => open,
+        fim => fimA,
+        meio => open
+      );
+
+    mux2x1: mux_2x1
+    generic map (4)
+    port map
+    (
+       a => botoes,
+       b => s_dado,
+       sel => controla_led,
+       output => leds
+   );
+
+  db_tem_jogada <= s_botao_acionado;
   db_contagem <= s_endereco;
   db_memoria  <= s_dado;
-  db_jogada <= s_chaves;
-  db_tem_jogada <= s_chave_acionada;
+  db_jogada_feita <= s_jogada;
+  db_rodada <= s_rodada;
 
 end architecture estrutural;

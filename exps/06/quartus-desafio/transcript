@@ -1,0 +1,301 @@
+# ERROR: No extended dataflow license exists
+# vsim work.circuito_jogo_base_tb2 
+# Start time: 10:26:52 on Feb 15,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.circuito_jogo_base_tb2(tb)
+# Loading work.circuito_jogo_base(toplevel)
+# Loading ieee.math_real(body)
+# Loading ieee.numeric_std(body)
+# Loading work.fluxo_dados(estrutural)
+# Loading work.contador_163(comportamental)
+# Loading work.ram_16x4(ram_modelsim)
+# Loading work.registrador_n(comportamental)
+# Loading work.comparador_85(dataflow)
+# Loading work.edge_detector(rtl)
+# Loading work.contador_m(comportamental)
+# Loading work.mux_2x1(combinatorial)
+# Loading work.unidade_controle(fsm)
+# Loading work.hexa7seg(comportamental)
+do testbench2.do
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Operador  Hostname: DESKTOP-D670JL6  ProcessID: 6156
+#           Attempting to use alternate WLF file "./wlft6re8ie".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6re8ie
+add wave -position insertpoint  \
+sim:/circuito_jogo_base_tb2/memoria_escreve_out
+run -all
+# ** Note: inicio da simulacao
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2/dut/FD/MemJog
+# ** Note: Caso de teste 0
+#    Time: 280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 1
+#    Time: 1280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 1880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 2280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 3
+#    Time: 2680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 3280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 3880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 4280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 4680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 5080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 5680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 6
+#    Time: 6280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 6680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 7080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 8
+#    Time: 7480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 9
+#    Time: 8080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 10
+#    Time: 8680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 11
+#    Time: 9080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 9480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 9880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 13
+#    Time: 10280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 14
+#    Time: 10880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 15
+#    Time: 11480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 16
+#    Time: 11880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 17
+#    Time: 12280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 12680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 13080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 19
+#    Time: 13480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 20
+#    Time: 14080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 21
+#    Time: 14680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 22
+#    Time: 15080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 23
+#    Time: 15480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 24
+#    Time: 15880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 16280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: fim da simulacao
+#    Time: 16680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:30:18 on Feb 15,2023
+# vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_jogo_base_tb2
+# -- Compiling architecture tb of circuito_jogo_base_tb2
+# End time: 10:30:18 on Feb 15,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.circuito_jogo_base_tb2(tb)
+add wave -position insertpoint  \
+sim:/circuito_jogo_base_tb2/memoria_escreve_out
+do testbench2.do
+add wave -position insertpoint  \
+sim:/circuito_jogo_base_tb2/memoria_escreve_out
+run -all
+# ** Note: inicio da simulacao
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2/dut/FD/MemJog
+# ** Note: Caso de teste 0
+#    Time: 280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 1
+#    Time: 1280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 1880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 2280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 3
+#    Time: 2680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 3280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 3880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 4280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 4680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 5080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 5680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 6
+#    Time: 6280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 6680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 7080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 8
+#    Time: 7480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 9
+#    Time: 8080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 10
+#    Time: 8680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 11
+#    Time: 9080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 9480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 9880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 13
+#    Time: 10280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 14
+#    Time: 10880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 15
+#    Time: 11480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 16
+#    Time: 11880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 17
+#    Time: 12280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 12680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 13080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 19
+#    Time: 13480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 20
+#    Time: 14080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 21
+#    Time: 14680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 22
+#    Time: 15080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 23
+#    Time: 15480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 24
+#    Time: 15880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 16280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: fim da simulacao
+#    Time: 16680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:33:45 on Feb 15,2023
+# vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_jogo_base_tb2
+# -- Compiling architecture tb of circuito_jogo_base_tb2
+# End time: 10:33:45 on Feb 15,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:34:18 on Feb 15,2023
+# vcom -reportprogress 300 -work work C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/sim/circuito_jogo_base_tb2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_jogo_base_tb2
+# -- Compiling architecture tb of circuito_jogo_base_tb2
+# End time: 10:34:18 on Feb 15,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.circuito_jogo_base_tb2(tb)
+run -all
+# ** Note: inicio da simulacao
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /circuito_jogo_base_tb2/dut/FD/MemJog
+# ** Note: Caso de teste 0
+#    Time: 280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 1
+#    Time: 1280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 2
+#    Time: 1880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 2280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 3
+#    Time: 2680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 3280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 3880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 4280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 4
+#    Time: 4680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 5
+#    Time: 5280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 6
+#    Time: 5880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 7
+#    Time: 6280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 6680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 8
+#    Time: 7080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 9
+#    Time: 7680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 10
+#    Time: 8280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 11
+#    Time: 8680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 12
+#    Time: 9080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 9480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 13
+#    Time: 9880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 14
+#    Time: 10480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 15
+#    Time: 11080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 16
+#    Time: 11480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 17
+#    Time: 11880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 18
+#    Time: 12280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 12680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 19
+#    Time: 13080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 20
+#    Time: 13680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 21
+#    Time: 14280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 22
+#    Time: 14680 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 23
+#    Time: 15080 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 24
+#    Time: 15480 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: Caso de teste 25
+#    Time: 15880 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2
+# ** Note: fim da simulacao
+#    Time: 16280 ns  Iteration: 0  Instance: /circuito_jogo_base_tb2

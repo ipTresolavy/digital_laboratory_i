@@ -12,399 +12,149 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# vsim work.circuito_exp3_desafio_tb 
-# Start time: 00:11:34 on Jan 31,2023
-# ** Note: (vsim-8009) Loading existing optimized design _opt2
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.circuito_exp3_desafio_tb(tb)#1
-do wave_desafio.do
-run -all
-# ** Note: Inicio da simulacao
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb/dut/FD/memoria
-# ** Note: Caso de teste 1
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 2
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 3
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 4
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 5
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 6
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 7
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 8
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 9
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 10
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 11
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 12
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 13
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 14
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 15
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 16
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 17
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 18
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 19
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 20
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 21
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 22
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 23
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 24
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 25
-#    Time: 1180 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1180 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 26
-#    Time: 1240 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1240 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 27
-#    Time: 1300 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1300 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 28
-#    Time: 1360 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1360 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 29
-#    Time: 1400 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1400 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Fim da simulacao
-#    Time: 1460 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.circuito_exp3_desafio_tb(tb)#1
-run -all
-# ** Note: Inicio da simulacao
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb/dut/FD/memoria
-# ** Note: Caso de teste 1
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 2
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 3
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 4
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 5
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 6
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 7
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 8
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 9
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 10
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 11
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 12
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 13
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 14
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 15
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 16
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 17
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 18
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 19
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 20
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 21
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 22
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 23
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 24
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 25
-#    Time: 1220 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1220 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 26
-#    Time: 1280 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1280 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 27
-#    Time: 1340 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1340 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 28
-#    Time: 1400 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1400 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 29
-#    Time: 1440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Fim da simulacao
-#    Time: 1500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading work.circuito_exp3_desafio_tb(tb)#1
-run -all
-# ** Note: Inicio da simulacao
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb/dut/FD/memoria
-# ** Note: Caso de teste 1
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 20 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 2
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 40 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 3
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 60 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 4
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 80 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 5
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 6
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 200 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 7
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 260 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 8
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 320 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 9
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 10
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 11
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 12
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 560 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 13
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 620 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 14
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 680 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 15
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 740 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 16
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 800 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 17
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 860 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 18
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 920 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 19
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 980 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 20
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1040 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 21
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1100 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 22
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1120 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 23
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1140 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 24
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1160 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 25
-#    Time: 1220 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1220 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 26
-#    Time: 1280 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1280 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 27
-#    Time: 1340 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1340 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 28
-#    Time: 1380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1380 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Caso de teste 29
-#    Time: 1440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Error: Assertion violation.
-#    Time: 1440 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# ** Note: Fim da simulacao
-#    Time: 1500 ns  Iteration: 0  Instance: /circuito_exp3_desafio_tb
-# End time: 21:11:44 on Jan 31,2023, Elapsed time: 21:00:10
-# Errors: 29, Warnings: 1
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/unidade_controle.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:15:51 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/unidade_controle.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity unidade_controle
+# -- Compiling architecture fsm_desafio of unidade_controle
+# -- Compiling architecture fsm of unidade_controle
+# -- Loading entity unidade_controle
+# End time: 18:15:52 on Feb 24,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/registrador_n.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:15:55 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/registrador_n.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity registrador_n
+# -- Compiling architecture comportamental of registrador_n
+# End time: 18:15:55 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/ram_16x4.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:15:56 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/ram_16x4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ram_16x4
+# -- Compiling architecture ram_mif of ram_16x4
+# -- Compiling architecture ram_modelsim of ram_16x4
+# -- Loading entity ram_16x4
+# End time: 18:15:56 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/hexa7seg.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:15:58 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/hexa7seg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity hexa7seg
+# -- Compiling architecture comportamental of hexa7seg
+# End time: 18:15:58 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/fluxo_dados_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:15:59 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/fluxo_dados_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fluxo_dados_tb
+# -- Compiling architecture tb of fluxo_dados_tb
+# End time: 18:15:59 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/fluxo_dados.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:01 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/fluxo_dados.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fluxo_dados
+# -- Compiling architecture estrutural of fluxo_dados
+# -- Loading package NUMERIC_STD
+# -- Loading entity ram_16x4
+# End time: 18:16:01 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/contador_163.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:02 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/contador_163.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity contador_163
+# -- Compiling architecture comportamental of contador_163
+# End time: 18:16:02 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/comparador_85.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:04 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/comparador_85.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity comparador_85
+# -- Compiling architecture dataflow of comparador_85
+# End time: 18:16:04 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:05 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp3_tb
+# -- Compiling architecture tb of circuito_exp3_tb
+# End time: 18:16:05 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_desafio_tb.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:06 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_desafio_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp3_desafio_tb
+# -- Compiling architecture tb of circuito_exp3_desafio_tb
+# End time: 18:16:06 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_desafio.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:08 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3_desafio.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp3_desafio
+# -- Compiling architecture toplevel of circuito_exp3_desafio
+# -- Loading entity unidade_controle
+# End time: 18:16:08 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3.vhd
+# Questa Intel Starter FPGA Edition-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+# Start time: 18:16:09 on Feb 24,2023
+# vcom -reportprogress 300 -work work /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity circuito_exp3
+# -- Compiling architecture toplevel of circuito_exp3
+# -- Loading entity unidade_controle
+# ** Error: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3.vhd(117): Cannot read output "db_igual".
+# 	VHDL 2008 allows reading outputs.
+# 	This facility is enabled by compiling with -2008.
+# ** Note: /home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/sim/circuito_exp3.vhd(145): VHDL Compiler exiting
+# End time: 18:16:09 on Feb 24,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

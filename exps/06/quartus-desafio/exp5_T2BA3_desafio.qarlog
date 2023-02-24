@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/exp5_T2BA3_desafio.qarlog
+
+Archive:	C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/exp5_T2BA3_desafio.qar
+Date:		Wed Feb 15 12:26:07 2023
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/circuito_jogo_base.qpf
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/circuito_jogo_base.qsf
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/circuito_jogo_base.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/comparador_85.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/contador_163.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/contador_m.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/edge_detector.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/fluxo_dados.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/hexa7seg.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/mux_2x1.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/ram_16x4.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/ram_conteudo_jogadas.mif
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/registrador_n.vhd
+C:/Projetos/T2BA3/Exp5/PCS3635-T2BA3-exp5/quartus-desafio/unidade_controle.vhd
+c:/intelfpga_lite/20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

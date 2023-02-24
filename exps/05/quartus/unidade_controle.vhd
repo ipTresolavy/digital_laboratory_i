@@ -23,29 +23,36 @@ use ieee.std_logic_1164.all;
 
 entity unidade_controle is
     port (
-        clock     : in  std_logic;
-        reset     : in  std_logic;
-        iniciar   : in  std_logic;
-        fim       : in  std_logic;
-        jogada    : in  std_logic;
-		igual     : in  std_logic;
-        timeout_in   : in  std_logic;
-        zeraC     : out std_logic;
-        zeraM     : out std_logic;
-        contaC    : out std_logic;
-        contaM    : out std_logic;
-        zeraR     : out std_logic;
-        registraR : out std_logic;
-		acertou   : out std_logic;
-		errou	  : out std_logic;
-        timeout_out : out std_logic;
-        pronto    : out std_logic;
-        db_estado : out std_logic_vector(3 downto 0)
+        clock               : in  std_logic;
+        reset               : in  std_logic;
+        iniciar             : in  std_logic;
+        enderecoIgualRodada : in  std_logic;
+        tem_jogada          : in  std_logic;
+		jogada_correta      : in  std_logic;
+        fimT                : in  std_logic;
+        fimCR               : in  std_logic;
+        fimA                : in  std_logic;
+        zeraE               : out std_logic;
+        zeraCR              : out std_logic;
+        zeraT               : out std_logic;
+        zeraA               : out std_logic;
+        contaE              : out std_logic;
+        contaCR             : out std_logic;
+        contaT              : out std_logic;
+        contaA              : out std_logic;
+        zeraR               : out std_logic;
+        registraR           : out std_logic;
+        controla_led        : out std_logic;
+		ganhou              : out std_logic;
+		perdeu	            : out std_logic;
+        pronto              : out std_logic;
+        db_estado           : out std_logic_vector(3 downto 0);
+        db_timeout          : out std_logic
     );
 end entity;
 
 architecture fsm of unidade_controle is
-    type t_estado is (inicial, inicializa, espera_jogada, registra, compara, proximo, fimAcertou, fimErrou, fimTimeout);
+    type t_estado is (inicial, inicializa, amostra_jogada, inicio_rodada, espera_jogada, registra, compara_rod_jog, ultima_rodada, proximo, proxima_rodada, fimAcertou, fimErrou, fimTimeout);
     signal Eatual, Eprox: t_estado;
 begin
 
@@ -61,86 +68,120 @@ begin
 
     -- logica de proximo estado
     Eprox <=
-        inicial       when  Eatual=inicial and iniciar='0' else
-        inicializa    when  Eatual=inicial and iniciar='1' else
+        inicial        when  Eatual=inicial and iniciar='0' else
+        inicializa     when  Eatual=inicial and iniciar='1' else
 
-        espera_jogada when  Eatual=inicializa else
+        amostra_jogada when  Eatual=inicializa else
 
-        espera_jogada when Eatual=espera_jogada and jogada='0' and timeout_in='0' else
-        registra      when Eatual=espera_jogada and jogada='1' and timeout_in='0' else
-        fimTimeout    when Eatual=espera_jogada and timeout_in='1' else
+        amostra_jogada when Eatual=amostra_jogada and fimA='0' else
+        inicio_rodada  when Eatual=amostra_jogada and fimA='1' else
 
-        compara       when Eatual=registra else
+        espera_jogada  when Eatual=inicio_rodada else
 
-        proximo       when Eatual=compara and fim='0' and igual='1' else
-        fimAcertou    when Eatual=compara and fim='1' and igual='1' else
-        fimErrou      when Eatual=compara and igual='0' else
+        espera_jogada  when Eatual=espera_jogada and tem_jogada='0' and fimT='0' else
+        registra       when Eatual=espera_jogada and tem_jogada='1' and fimT='0' else
+        fimTimeout     when Eatual=espera_jogada and fimT='1' else
 
-        espera_jogada when Eatual=proximo else
+        compara_rod_jog when Eatual=registra else
 
-        fimAcertou    when Eatual=fimAcertou and iniciar='0' else
-        inicializa    when Eatual=fimAcertou and iniciar='1' else
+        proximo         when Eatual=compara_rod_jog and enderecoIgualRodada='0' and jogada_correta='1' else
+        ultima_rodada   when Eatual=compara_rod_jog and enderecoIgualRodada='1' and jogada_correta='1' else
+        fimErrou        when Eatual=compara_rod_jog and jogada_correta='0' else
 
-        fimErrou      when Eatual=fimErrou and iniciar='0' else
-        inicializa    when Eatual=fimErrou and iniciar='1' else
+        proxima_rodada  when Eatual=ultima_rodada and fimCR='0' else
+        fimAcertou      when Eatual=ultima_rodada and fimCR='1' else
 
-        fimTimeout    when Eatual=fimTimeout and iniciar='0' else  
-        inicializa    when Eatual=fimTimeout and iniciar='1' else
+        espera_jogada   when Eatual=proximo else
+
+        inicio_rodada   when Eatual=proxima_rodada else
+
+        fimAcertou      when Eatual=fimAcertou and iniciar='0' else
+        inicializa      when Eatual=fimAcertou and iniciar='1' else
+
+        fimErrou        when Eatual=fimErrou and iniciar='0' else
+        inicializa      when Eatual=fimErrou and iniciar='1' else
+
+        fimTimeout      when Eatual=fimTimeout and iniciar='0' else
+        inicializa      when Eatual=fimTimeout and iniciar='1' else
 
         inicial; -- condição inatingível
 
     -- logica de saída (maquina de Moore)
     with Eatual select
-        zeraC     <=  '1' when inicial | inicializa,
+        zeraE     <=  '1' when inicial | inicializa | inicio_rodada,
                       '0' when others;
 
     with Eatual select
-        zeraM     <= '0' when espera_jogada,
-                     '1' when others;
-
-    with Eatual select
-        zeraR     <=  '1' when inicial,
-                      '0' when others;
-
-    with Eatual select
-        registraR <=  '1' when registra,
-                      '0' when others;
-
-    with Eatual select
-        contaC    <=  '1' when proximo,
-                      '0' when others;
-
-    with Eatual select
-        contaM    <= '1' when espera_jogada,
+        zeraCR    <= '1' when inicial | inicializa,
                      '0' when others;
+
+    with Eatual select
+        zeraT     <= '1' when inicio_rodada | proximo,
+                     '0' when others;
+    with Eatual select
+        zeraA     <= '1' when inicializa,
+                     '0' when others;
+
+    with Eatual select
+        contaE    <= '1' when proximo,
+                     '0' when others;
+
+    with Eatual select
+        contaCR   <= '1' when proxima_rodada,
+                     '0' when others;
+
+    with Eatual select
+        contaT    <= '1' when espera_jogada,
+                     '0' when others;
+
+    with Eatual select
+        contaA    <= '1' when amostra_jogada,
+                     '0' when others;
+
+    with Eatual select
+        zeraR     <= '1' when inicial,
+                     '0' when others;
+
+    with Eatual select
+        registraR <= '1' when registra,
+                     '0' when others;
+
+    with Eatual select
+        controla_led <= '1' when amostra_jogada,
+                        '0' when others;
 
     with Eatual select
         pronto    <=  '1' when fimAcertou | fimErrou | fimTimeout,
                       '0' when others;
 
     with Eatual select
-        acertou   <= '1' when fimAcertou,
+        ganhou   <= '1' when fimAcertou,
                      '0' when others;
 
     with Eatual select
-        errou     <= '1' when fimErrou | fimTimeout,
-                     '0' when others;
-
-    with Eatual select
-        timeout_out <= '1' when fimTimeout,
-                        '0' when others;
+        perdeu   <= '1' when fimErrou | fimTimeout,
+                      '0' when others;
 
     -- saida de depuracao (db_estado)
     with Eatual select
-        db_estado <= "0000" when inicial,       -- 0
-                     "0001" when inicializa,    -- 1
-                     "0010" when espera_jogada, -- 2
-                     "0011" when registra,      -- 3
-                     "0100" when compara,       -- 4
-                     "0101" when proximo,       -- 5
-                     "1010" when fimAcertou,    -- A
-                     "1100" when fimTimeout,    -- C
-							"1110" when fimErrou,      -- E
-                     "1111" when others;        -- F
+        db_estado <= "0000" when inicial,         -- 0
+                     "0001" when inicializa,      -- 1
+                     "0010" when amostra_jogada,  -- 2
+                     "0011" when inicio_rodada,   -- 3
+                     "0100" when espera_jogada,   -- 4
+                     "0101" when registra,        -- 5
+                     "0110" when compara_rod_jog, -- 6
+                     "0111" when proximo,         -- 7
+                     "1000" when ultima_rodada,   -- 8
+                     "1001" when proxima_rodada,  -- 9
+                     "1010" when fimAcertou,      -- A
+                     "1100" when fimTimeout,      -- C
+				     "1110" when fimErrou,        -- E
+                     "1111" when others;          -- F
+
+    -- saida de depuracao (db_timeout)
+    with Eatual select
+        db_timeout <= '1' when fimTimeout,
+                      '0' when others;
 
 end architecture fsm;
