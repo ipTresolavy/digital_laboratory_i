@@ -73,7 +73,7 @@ architecture tb of circuito_jogo_desafio_memoria_tb3 is
 
   -- Configurações do clock
   signal keep_simulating: std_logic := '0'; -- delimita o tempo de geração do clock
-  constant clockPeriod : time := 20 ns;     -- frequencia 50MHz
+  constant clockPeriod : time := 1 ms;     -- frequencia 50MHz
 
   -- Identificacao de casos de teste
   signal caso : integer := 0;
@@ -174,6 +174,9 @@ begin
     iniciar_in <= '1';
     wait until falling_edge(clk_in);
     iniciar_in <= '0';
+
+    -- espera até amostra da jogada inicial acabar
+    wait until estado_out="0110000";
 
     -- espera para inicio dos testes
     wait for 10*clockPeriod;
