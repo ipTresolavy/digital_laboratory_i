@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/exp3_T2BA3_ativ2.qarlog
+
+Archive:	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/exp3_T2BA3_ativ2.qar
+Date:		Sun Jan 29 20:23:31 2023
+Quartus Prime		22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+	=========== Files Selected: ===========
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/circuito_exp3.qpf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/circuito_exp3.qsf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/circuito_exp3.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/comparador_85.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/contador_163.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/fluxo_dados.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/hexa7seg.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/ram_16x4.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/ram_conteudo_jogadas.mif
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/registrador_n.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/03/quartus/unidade_controle.vhd
+/home/ipontes3olavy/intelFPGA_lite/22.1std/quartus/linux64/assignment_defaults.qdf
+	======= Total: 12 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

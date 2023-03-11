@@ -1,0 +1,27 @@
+Quartus Prime Archive log --	C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/jogo_desafio_memoria.qarlog
+
+Archive:	C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/jogo_desafio_memoria.qar
+Date:		Wed Mar 01 10:32:00 2023
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/assignment_defaults.qdf
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/circuito_jogo_base.qpf
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/circuito_jogo_base.qsf
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/circuito_jogo_base_assignment_defaults.qdf
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/comparador_85.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/contador_163.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/contador_m.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/edge_detector.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/fluxo_dados.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/hexa7seg.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/jogo_desafio_memoria.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/mux_2x1.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/ram_16x4.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/ram_conteudo_jogadas.mif
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/registrador_n.vhd
+C:/Projetos/T2BA3/Exp6/exp6_T2BA3-atividade2-final_restored/unidade_controle.vhd
+	======= Total: 16 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

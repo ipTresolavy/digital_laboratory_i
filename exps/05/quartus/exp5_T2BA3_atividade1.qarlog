@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/exp5_T2BA3_atividade1.qarlog
+
+Archive:	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/exp5_T2BA3_atividade1.qar
+Date:		Sun Feb 12 17:05:04 2023
+Quartus Prime		22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+	=========== Files Selected: ===========
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/circuito_jogo_base.qpf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/circuito_jogo_base.qsf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/circuito_jogo_base.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/comparador_85.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/contador_163.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/contador_m.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/edge_detector.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/fluxo_dados.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/hexa7seg.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/mux_2x1.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/ram_16x4.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/ram_conteudo_jogadas.mif
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/registrador_n.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/05/quartus/unidade_controle.vhd
+/home/ipontes3olavy/intelFPGA_lite/22.1std/quartus/linux64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
