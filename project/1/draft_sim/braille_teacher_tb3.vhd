@@ -43,7 +43,7 @@ architecture tb of braille_teacher_tb3 is
         db_tem_jogada          : out std_logic; -- Analog Discovery DIO3
         db_enderecoIgualRodada : out std_logic; -- Analog Discovery DIO9
         db_contagem            : out std_logic_vector(3 downto 0); -- LEDR9 até LEDR6
-        db_memoria             : out std_logic_vector(5 downto 0); -- Analog Discovery DIO15 até DIO10
+        db_memoria             : out std_logic_vector(13 downto 0); -- Analog Discovery DIO15 até DIO10
         db_jogada_feita        : out std_logic_vector(5 downto 0); -- LEDR5 até LEDR0
         db_rodada              : out std_logic_vector(6 downto 0); -- HEX4
         db_estado              : out std_logic_vector(6 downto 0) -- HEX5
@@ -64,7 +64,7 @@ architecture tb of braille_teacher_tb3 is
   signal tem_jogada_out : std_logic := '0';
   signal enderecoIgualRodada_out : std_logic := '0';
   signal contagem_out   : std_logic_vector(3 downto 0) := "0000";
-  signal memoria_out    : std_logic_vector(5 downto 0) := "000000";
+  signal memoria_out    : std_logic_vector(13 downto 0) := "00000000000000";
   signal jogada_feita_out     : std_logic_vector(5 downto 0) := "000000";
   signal rodada_out     : std_logic_vector(6 downto 0) := "0000000";
   signal estado_out     : std_logic_vector(6 downto 0) := "0000000";
@@ -101,18 +101,18 @@ architecture tb of braille_teacher_tb3 is
         (8  , '0', '0', "000000", "111111", 1000, 29000),
         (9  , '0', '0', "000000", "111111", 1000, 29000),
         -- Y
-        (10 , '0', '0', "000000", "110111", 1500, 1500),
-        (11 , '0', '0', "000000", "111111", 1500, 1500),
-        (12 , '0', '0', "000000", "111111", 1000, 1000),
-        (13 , '0', '0', "000000", "111111", 1000, 1000),
-        (14 , '0', '0', "000000", "111111", 1000, 1000),
+        (10 , '0', '0', "000000", "110111", 1500, 28500),
+        (11 , '0', '0', "000000", "111111", 1500, 28500),
+        (12 , '0', '0', "000000", "111111", 1000, 29000),
+        (13 , '0', '0', "000000", "111111", 1000, 29000),
+        (14 , '0', '0', "000000", "111111", 1000, 29000),
         -- Z
-        (15 , '0', '0', "000000", "100111", 1500, 1500),
-        (16 , '0', '0', "000000", "111111", 1500, 1500),
-        (17 , '0', '0', "000000", "111111", 1000, 1000),
-        (18 , '0', '0', "000000", "111111", 1000, 1000),
-        (19 , '0', '0', "000000", "111111", 1000, 1000),
-        (20 , '0', '0', "000000", "101010", 1000, 1000),
+        (15 , '0', '0', "000000", "100111", 1500, 28500),
+        (16 , '0', '0', "000000", "111111", 1500, 28500),
+        (17 , '0', '0', "000000", "111111", 1000, 29000),
+        (18 , '0', '0', "000000", "111111", 1000, 29000),
+        (19 , '0', '0', "000000", "111111", 1000, 29000),
+        (20 , '0', '0', "000000", "101010", 1000, 29000),
         -- reinicialização
         (21 , '1', '0', "000100", "111111", 1000, 1000)
     );

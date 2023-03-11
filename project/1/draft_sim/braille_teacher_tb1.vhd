@@ -41,7 +41,7 @@ architecture tb of braille_teacher_tb1 is
         db_tem_jogada          : out std_logic; -- Analog Discovery DIO3
         db_enderecoIgualRodada : out std_logic; -- Analog Discovery DIO9
         db_contagem            : out std_logic_vector(3 downto 0); -- LEDR9 até LEDR6
-        db_memoria             : out std_logic_vector(5 downto 0); -- Analog Discovery DIO15 até DIO10
+        db_memoria             : out std_logic_vector(13 downto 0); -- Analog Discovery DIO15 até DIO10
         db_jogada_feita        : out std_logic_vector(5 downto 0); -- LEDR5 até LEDR0
         db_rodada              : out std_logic_vector(6 downto 0); -- HEX4
         db_estado              : out std_logic_vector(6 downto 0) -- HEX5
@@ -62,7 +62,7 @@ architecture tb of braille_teacher_tb1 is
   signal tem_jogada_out : std_logic := '0';
   signal enderecoIgualRodada_out : std_logic := '0';
   signal contagem_out   : std_logic_vector(3 downto 0) := "0000";
-  signal memoria_out    : std_logic_vector(5 downto 0) := "000000";
+  signal memoria_out    : std_logic_vector(13 downto 0) := "00000000000000";
   signal jogada_feita_out     : std_logic_vector(5 downto 0) := "000000";
   signal rodada_out     : std_logic_vector(6 downto 0) := "0000000";
   signal estado_out     : std_logic_vector(6 downto 0) := "0000000";
