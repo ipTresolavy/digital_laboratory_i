@@ -1,0 +1,15 @@
+mux_2x1.vhd
+hexa7seg.vhd
+contador_m.vhd
+contador_163.vhd
+comparador_85.vhd
+ram_16x6.vhd
+edge_detector.vhd
+registrador_n.vhd
+fluxo_dados.vhd
+unidade_controle.vhd
+braille_teacher.vhd
+braille_teacher_tb1.vhd
+braille_teacher_tb2.vhd
+braille_teacher_tb3.vhd
+braille_teacher_tb4.vhd

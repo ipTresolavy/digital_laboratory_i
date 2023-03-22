@@ -1,0 +1,27 @@
+Quartus Prime Archive log --	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/exp6_T2BA3-atividade2-final.qarlog
+
+Archive:	/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/exp6_T2BA3-atividade2-final.qar
+Date:		Fri Feb 24 21:53:42 2023
+Quartus Prime		22.1std.0 Build 915 10/25/2022 SC Lite Edition
+
+	=========== Files Selected: ===========
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/assignment_defaults.qdf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/circuito_jogo_base.qpf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/circuito_jogo_base.qsf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/circuito_jogo_base_assignment_defaults.qdf
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/comparador_85.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/contador_163.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/contador_m.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/edge_detector.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/fluxo_dados.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/hexa7seg.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/jogo_desafio_memoria.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/mux_2x1.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/ram_16x4.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/ram_conteudo_jogadas.mif
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/registrador_n.vhd
+/home/ipontes3olavy/first_quadrimester/digital_laboratory/exps/06/quartus/unidade_controle.vhd
+	======= Total: 16 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

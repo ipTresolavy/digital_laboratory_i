@@ -1,0 +1,201 @@
+--------------------------------------------------------------------
+-- Arquivo   : unidade_controle.vhd
+-- Projeto   : Braille Teacher
+--------------------------------------------------------------------
+-- Descricao : unidade de controle
+--
+--             1) codificação VHDL (maquina de Moore)
+--
+--             2) definicao de valores da saida de depuracao
+--                db_estado
+--
+--------------------------------------------------------------------
+-- Revisoes  :
+--     Data        Versao  Autor             Descricao
+--     20/01/2023  1.0     Edson Midorikawa  versao inicial
+--     22/01/2023  1.1     Edson Midorikawa  revisao
+--     04/02/2023  2.0     Igor Pontes Tresolavy revisao exp4
+--     10/03/2023  3.0     Igor Pontes Tresolavy revisao Braille
+--                         Teacher
+--------------------------------------------------------------------
+--
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity unidade_controle is
+    port (
+        clock               : in  std_logic;
+        reset               : in  std_logic;
+        iniciar             : in  std_logic;
+        enderecoIgualRodada : in  std_logic;
+        tem_jogada          : in  std_logic_vector(5 downto 0);
+        tem_escrita         : in  std_logic;
+		jogada_correta      : in  std_logic;
+		tem_erro            : in  std_logic;
+        fimT                : in  std_logic;
+        fimCR               : in  std_logic;
+        zeraE               : out std_logic;
+        zeraCR              : out std_logic;
+        zeraT               : out std_logic;
+        zeraEstat           : out std_logic;
+        contaE              : out std_logic;
+        contaCR             : out std_logic;
+        contaT              : out std_logic;
+        contaErr            : out std_logic;
+        registraTempo       : out std_logic;
+        zeraR               : out std_logic;
+        registraR           : out std_logic;
+        mux_registrador     : out std_logic;
+        ativa_escrita       : out std_logic;
+        fimDeJogo           : out std_logic;
+        db_estado           : out std_logic_vector(3 downto 0)
+    );
+end entity;
+
+architecture fsm of unidade_controle is
+    type t_estado is (inicial, inicializa, espera_escrita, registra_escrita, inicio_rodada, super_espera_jogada, ultima_jogada, acertou_proximo, errou_proximo, fim);
+    type t_subestado is (espera_jogada, registra_jogada, compara_jogada_rodada);
+    type t_subestados is array(0 to 5) of t_subestado;
+
+    signal Eatual, Eprox: t_estado;
+    signal subEatuais, subEproxs: t_subestados;
+
+    signal registra : std_logic_vector(5 downto 0);
+
+begin
+
+    -- memoria de estado
+    process (clock,reset)
+    begin
+        if reset='1' then
+            Eatual <= inicial;
+            subEatuais <= (others => espera_jogada);
+        elsif clock'event and clock = '1' then
+            Eatual <= Eprox;
+            subEatuais <= subEproxs;
+        end if;
+    end process;
+
+    -- logica de proximo estado
+    Eprox <=
+        inicial             when  Eatual=inicial and iniciar='0' else
+        inicializa          when  Eatual=inicial and iniciar='1' else
+
+        espera_escrita      when  Eatual=inicializa else
+
+        espera_escrita      when Eatual=espera_escrita and tem_escrita='0' else
+        registra_escrita    when Eatual=espera_escrita and tem_escrita='1' else
+
+        inicio_rodada       when Eatual=registra_escrita else
+
+        super_espera_jogada when Eatual=inicio_rodada else
+
+        super_espera_jogada when Eatual=super_espera_jogada and jogada_correta='0' and fimT='0' and tem_erro='0' else
+        acertou_proximo     when Eatual=super_espera_jogada and jogada_correta='1' and fimT='0' else
+        ultima_jogada       when Eatual=super_espera_jogada and jogada_correta='1' and enderecoIgualRodada='1' and fimT='0' else
+        errou_proximo       when Eatual=super_espera_jogada and (tem_erro='1' or fimT='1') else
+
+		super_espera_jogada when Eatual=acertou_proximo and enderecoIgualRodada='0' else
+		ultima_jogada       when Eatual=acertou_proximo and enderecoIgualRodada='1' else
+
+        super_espera_jogada when Eatual=errou_proximo and enderecoIgualRodada='0' else
+        ultima_jogada       when Eatual=errou_proximo and enderecoIgualRodada='1' else
+
+        espera_escrita      when Eatual=ultima_jogada and fimCR='0' else
+        fim                 when Eatual=ultima_jogada and fimCR='1' else
+
+        fim                 when Eatual=fim and iniciar='0' else
+        inicializa          when Eatual=fim and iniciar='1' else
+
+        inicial; -- condição inatingível
+
+    subestados: for subestado in 0 to 5 generate
+        -- lógica de próximo subestado
+        subEproxs(subestado) <=
+            espera_jogada   when Eatual=super_espera_jogada and subEatuais(subestado)=espera_jogada and tem_jogada(subestado)='0' else
+            registra_jogada when Eatual=super_espera_jogada and subEatuais(subestado)=espera_jogada and tem_jogada(subestado)='1' else
+
+            compara_jogada_rodada when Eatual=super_espera_jogada and subEatuais(subestado)=registra_jogada else
+
+            compara_jogada_rodada when Eatual=super_espera_jogada and subEatuais(subestado)=compara_jogada_rodada else
+
+            espera_jogada;
+
+            with subEatuais(subestado) select
+                registra(subestado) <= '1' when registra_jogada,
+                                       '0' when others;
+
+    end generate subestados;
+
+
+    -- logica de saída (maquina de Moore)
+    with Eatual select
+        zeraE <=  '1' when inicializa | inicio_rodada,
+                  '0' when others;
+
+    with Eatual select
+        zeraCR <= '1' when inicializa,
+                  '0' when others;
+
+    with Eatual select
+        zeraT <= '1' when inicio_rodada | acertou_proximo | errou_proximo,
+                 '0' when others;
+
+    with Eatual select
+        contaE <= '1' when acertou_proximo | errou_proximo,
+                  '0' when others;
+
+    with Eatual select
+        contaCR <= '1' when ultima_jogada,
+                   '0' when others;
+
+    with Eatual select
+        contaT <= '1' when super_espera_jogada,
+                  '0' when others;
+
+    with Eatual select
+        contaErr <= '1' when errou_proximo,
+                    '0' when others;
+
+    with Eatual select
+        registraTempo <= '1' when super_espera_jogada,
+                        '0' when others;
+
+    with Eatual select
+        zeraR <= '1' when inicializa | inicio_rodada | errou_proximo | acertou_proximo,
+                 '0' when others;
+
+    with Eatual select
+        zeraEstat <= '1' when inicializa,
+                     '0' when others;
+
+    with Eatual select
+        mux_registrador <= '1' when registra_escrita,
+                           '0' when others;
+
+    registraR <= '1' when registra/="000000" or Eatual=registra_escrita else
+                 '0';
+
+    with Eatual select
+        ativa_escrita <= '1' when inicio_rodada,
+                         '0' when others;
+
+    with Eatual select
+        fimDeJogo <= '1' when fim,
+                     '0' when others;
+
+    -- saida de depuracao (db_estado)
+    with Eatual select
+        db_estado <= "0000" when inicial,            -- 0
+                     "0001" when inicializa,         -- 1
+                     "0010" when espera_escrita,     -- 2
+                     "0011" when registra_escrita,   -- 3
+                     "0100" when inicio_rodada,      -- 4
+                     "0101" when super_espera_jogada,-- 5
+                     "1010" when acertou_proximo,    -- A
+                     "1110" when errou_proximo,      -- E
+                     "1000" when ultima_jogada,      -- 8
+                     "1111" when fim,                -- F
+                     "1011" when others;             -- B
+
+end architecture fsm;

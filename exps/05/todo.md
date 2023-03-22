@@ -1,0 +1,6 @@
+- Preencher tabelas de teste
+- Fazer pinagem e gerar qar
+- Colocar foto da pinagem no planejamento
+- Escrever o planejamento da aula prática
+    - Usar fotos dos pinos da GPIO e do Analog Discovery
+    - Na seção de depuração, mapear as técnicas de depuração aos sinais de depuração do circuito
