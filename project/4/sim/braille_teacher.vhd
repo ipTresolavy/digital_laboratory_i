@@ -104,6 +104,13 @@ architecture toplevel of braille_teacher is
         );
     end component hexa7seg;
 
+    component letter7seg is
+        port (
+            letter : in  std_logic_vector(5 downto 0);
+            sseg   : out std_logic_vector(6 downto 0)
+        );
+    end component letter7seg;
+
     component mux_2x1 is
         generic (
             constant bit_width: integer := 4
