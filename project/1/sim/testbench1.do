@@ -1,32 +1,36 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider Entradas
-add wave -noupdate -height 35 /jogo_desafio_memoria_tb1/clk_in
-add wave -noupdate -color Cyan -height 35 /jogo_desafio_memoria_tb1/rst_in
-add wave -noupdate -color Cyan -height 35 /jogo_desafio_memoria_tb1/iniciar_in
-add wave -noupdate -color Cyan -height 35 /jogo_desafio_memoria_tb1/botoes_in
+add wave -noupdate -color white /braille_teacher_tb1/DUT/clock
+add wave -noupdate -color white /braille_teacher_tb1/DUT/reset
+add wave -noupdate -color white /braille_teacher_tb1/DUT/iniciar
+add wave -noupdate -color white /braille_teacher_tb1/DUT/botoes
+add wave -noupdate -color white /braille_teacher_tb1/DUT/dado_escrita
 add wave -noupdate -divider Saidas
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/leds_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/pronto_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/ganhou_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/perdeu_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/clock_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/tem_jogada_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/jogada_correta_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/enderecoIgualRodada_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/timeout_out
-add wave -noupdate -color Yellow -height 35 /jogo_desafio_memoria_tb1/escreve_memoria_out
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/erros
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/fimDeJogo
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_clock
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_tem_jogada
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_enderecoIgualRodada
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_contagem
+add wave -noupdate -color yellow -radix hexadecimal /braille_teacher_tb1/DUT/db_memoria
+add wave -noupdate -color yellow -radix hexadecimal /braille_teacher_tb1/DUT/db_jogada_feita
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_rodada
+add wave -noupdate -color yellow /braille_teacher_tb1/DUT/db_estado
 add wave -noupdate -divider {Fluxo de Dados}
-add wave -noupdate -height 45 /jogo_desafio_memoria_tb1/dut/s_db_contagem
-add wave -noupdate -height 35 /jogo_desafio_memoria_tb1/dut/s_db_memoria
-add wave -noupdate -height 35 /jogo_desafio_memoria_tb1/dut/s_db_jogada_feita
-add wave -noupdate -height 35 /jogo_desafio_memoria_tb1/dut/s_db_rodada
+add wave -noupdate /braille_teacher_tb1/DUT/FD/s_dado
+add wave -noupdate /braille_teacher_tb1/caso
+add wave -noupdate /braille_teacher_tb1/DUT/FD/erros
+add wave -noupdate /braille_teacher_tb1/DUT/FD/s_dado
+add wave -noupdate /braille_teacher_tb1/DUT/FD/s_jogada
+add wave -noupdate /braille_teacher_tb1/DUT/FD/tem_escrita
+add wave -noupdate /braille_teacher_tb1/DUT/FD/dado_escrita
 add wave -noupdate -divider {Unidade de Controle}
-add wave -noupdate -color Magenta -height 35 /jogo_desafio_memoria_tb1/dut/UC/Eatual
+add wave -noupdate -color Magenta /braille_teacher_tb1/DUT/UC/Eatual
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {334013998500 ns} 0}
+WaveRestoreCursors {{Cursor 1} {0 ns} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 346
+configure wave -namecolwidth 338
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -40,4 +44,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {350714700 us}
+WaveRestoreZoom {0 ns} {24407481 ns}

@@ -44,6 +44,7 @@ entity fluxo_dados is
         escreveM            : in  std_logic;
         zeraR               : in  std_logic;
         registraR           : in  std_logic;
+        registraTempo       : in  std_logic;
         botoes              : in  std_logic_vector (5 downto 0);
         dado_escrita        : in  std_logic_vector (5 downto 0);
         mux_registrador     : in  std_logic;
@@ -54,7 +55,9 @@ entity fluxo_dados is
         tem_jogada          : out std_logic_vector(5 downto 0);
         tem_escrita         : out std_logic;
         fimT                : out std_logic;
+        fimA                : out std_logic;
         erros               : out std_logic_vector(7 downto 0);
+        tempoMedio          : out std_logic_vector(7 downto 0);
         db_tem_jogada       : out std_logic;
         db_memoria          : out std_logic_vector (5 downto 0);
         db_contagem         : out std_logic_vector (3 downto 0);
@@ -75,10 +78,13 @@ architecture estrutural of fluxo_dados is
     signal s_jogada               : std_logic_vector(5 downto 0);
     signal s_botao_acionado       : std_logic_vector(5 downto 0);
     signal s_escrita_acionada     : std_logic;
+    signal s_Timer                : std_logic_vector(14 downto 0);
+    signal s_Tempo                : std_logic_vector(21 downto 0);
     signal s_saida_mux_reg        : std_logic_vector(5 downto 0);
     signal s_AGTB, s_ALTB, s_AEQB : std_logic;
     signal s_RCO                  : std_logic;
     signal s_botoes_ou_jogada     : std_logic_vector(5 downto 0);
+    signal s_Timer_mais_Tempo     : std_logic_vector(21 downto 0);
 
     signal s_j_and_not_d          : std_logic_vector(5 downto 0);
 
@@ -218,11 +224,11 @@ begin
 
     ContErr_lsn: contador_163
         port map (
-            clock => clock,
+            clock => contaErr,
             clr   => s_not_zeraErr,  -- clr ativo em baixo
             ld    => '1',
             ent   => '1',
-            enp   => contaErr,
+            enp   => '1',
             D     => "0000",
             Q     => erros(3 downto 0),
             rco   => s_RCO
@@ -230,11 +236,11 @@ begin
 
     ContErr_msn: contador_163
         port map (
-            clock => clock,
+            clock => contaErr,
             clr   => s_not_zeraErr,  -- clr ativo em baixo
             ld    => '1',
             ent   => s_RCO,
-            enp   => contaErr,
+            enp   => '1',
             D     => "0000",
             Q     => erros(7 downto 4),
             rco   => open
@@ -260,6 +266,17 @@ begin
             Q      => s_jogada
         );
 
+
+    s_Timer_mais_Tempo <= std_logic_vector(unsigned(s_Timer) + unsigned(s_Tempo));
+    RegTempo: registrador_n
+        generic map (22)
+        port map (
+            clock  => clock,
+            clear  => zeraEstat,
+            enable => registraTempo,
+            D      => s_Timer_mais_Tempo,
+            Q      => s_Tempo
+        );
 
   CompJog_lsn: comparador_85
     port map (
@@ -346,6 +363,19 @@ begin
         meio => open
       );
 
+    TimerA: contador_m
+      generic map (500)
+      port map
+      (
+        clock => clock,
+        zera_as => contaT,
+        zera_s => '0',
+        conta => zeraT,
+        Q => open,
+        fim => fimA,
+        meio => open
+      );
+
     s_botoes_ou_jogada <= botoes or s_jogada;
     mux2x1: mux_2x1
     generic map (6)
@@ -357,6 +387,8 @@ begin
        output => s_saida_mux_reg
    );
 
+    -- divisão por 2^17 = 131072
+    tempoMedio <= "000" & s_Tempo(21 downto 17);
     s_j_and_not_d <= s_jogada and (not s_dado);
     tem_erro <= (s_j_and_not_d(5) or
                  s_j_and_not_d(4) or

@@ -6,7 +6,7 @@
 -- Descricao : modelo de testbench para simulação com ModelSim
 --
 --             implementa um Cenário de Teste do circuito
---             com 4 jogadas certas e erro na quinta jogada
+--             com dois erros nas duas primeiras rodadas
 --------------------------------------------------------------------------
 -- Revisoes  :
 --     Data        Versao  Autor             Descricao
@@ -21,10 +21,10 @@ use ieee.std_logic_1164.all;
 use std.textio.all;
 
 -- entidade do testbench
-entity braille_teacher_tb3 is
+entity braille_teacher_tb2 is
 end entity;
 
-architecture tb of braille_teacher_tb3 is
+architecture tb of braille_teacher_tb2 is
 
   -- Componente a ser testado (Device Under Test -- DUT)
   component braille_teacher
@@ -34,13 +34,16 @@ architecture tb of braille_teacher_tb3 is
         iniciar                : in  std_logic;
         botoes                 : in  std_logic_vector(5 downto 0);
         dado_escrita           : in  std_logic_vector(5 downto 0);
+        aguarda_escrita        : out std_logic;
         erros                  : out std_logic_vector(13 downto 0); -- HEX1 e HEX0
         fimDeJogo              : out std_logic; -- Analog Discovery DIO8
-        db_clock               : out std_logic; -- Analog Discovery DIO0
-        db_tem_jogada          : out std_logic; -- Analog Discovery DIO3
+        errou_jogada           : out std_logic; -- Analog Discovery DIO5
+        acertou_jogada         : out std_logic; -- Analog Discovery DIO6
+        db_clock               : out std_logic; -- Analog Discovery DIO3
+        db_tem_jogada          : out std_logic; -- Analog Discovery DIO4
         db_enderecoIgualRodada : out std_logic; -- Analog Discovery DIO9
         db_contagem            : out std_logic_vector(3 downto 0); -- LEDR9 até LEDR6
-        db_memoria             : out std_logic_vector(13 downto 0); -- Analog Discovery DIO15 até DIO10
+        db_memoria             : out std_logic_vector(13 downto 0); -- HEX3 e HEX2
         db_jogada_feita        : out std_logic_vector(5 downto 0); -- LEDR5 até LEDR0
         db_rodada              : out std_logic_vector(6 downto 0); -- HEX4
         db_estado              : out std_logic_vector(6 downto 0) -- HEX5
@@ -51,20 +54,22 @@ architecture tb of braille_teacher_tb3 is
   signal clk_in          : std_logic := '0';
   signal rst_in          : std_logic := '0';
   signal iniciar_in      : std_logic := '0';
-  signal botoes_in       : std_logic_vector(5 downto 0) := "000000";
+  signal botoes_in       : std_logic_vector(5 downto 0) := "111111";
   signal dado_escrita_in : std_logic_vector(5 downto 0) := "000000";
 
   ---- Declaracao dos sinais de saida
-  signal erros_out      : std_logic_vector(13 downto 0);
-  signal fimDeJogo_out  : std_logic := '0';
-  signal clock_out      : std_logic := '0';
-  signal tem_jogada_out : std_logic := '0';
+  signal erros_out               : std_logic_vector(13 downto 0);
+  signal fimDeJogo_out           : std_logic := '0';
+  signal errou_jogada_out        : std_logic := '0';
+  signal acertou_jogada_out      : std_logic := '0';
+  signal clock_out               : std_logic := '0';
+  signal tem_jogada_out          : std_logic := '0';
   signal enderecoIgualRodada_out : std_logic := '0';
-  signal contagem_out   : std_logic_vector(3 downto 0) := "0000";
-  signal memoria_out    : std_logic_vector(13 downto 0) := "00000000000000";
-  signal jogada_feita_out     : std_logic_vector(5 downto 0) := "000000";
-  signal rodada_out     : std_logic_vector(6 downto 0) := "0000000";
-  signal estado_out     : std_logic_vector(6 downto 0) := "0000000";
+  signal contagem_out            : std_logic_vector(3 downto 0) := "0000";
+  signal memoria_out             : std_logic_vector(13 downto 0) := "00000000000000";
+  signal jogada_feita_out        : std_logic_vector(5 downto 0) := "000000";
+  signal rodada_out              : std_logic_vector(6 downto 0) := "0000000";
+  signal estado_out              : std_logic_vector(6 downto 0) := "0000000";
 
   -- Configurações do clock
   signal keep_simulating: std_logic := '0'; -- delimita o tempo de geração do clock
@@ -90,26 +95,8 @@ architecture tb of braille_teacher_tb3 is
         (2  , '0', '0', "000001", "111111", 1000, 1000),
         -- R
         (3  , '0', '0', "000001", "101110", 1500, 1500),
-        (4  , '0', '0', "000001", "111111", 1000, 1000),
+        (4  , '0', '0', "111110", "111111", 1000, 1000),
         (5  , '0', '0', "000001", "111111", 1000, 1000),
-        -- S
-        (6  , '0', '0', "000001", "011010", 1500, 1500),
-        (7  , '0', '0', "000001", "111111", 1500, 1500),
-        (8  , '0', '0', "000001", "111111", 1000, 1000),
-        (9  , '0', '0', "000001", "111111", 1000, 1000),
-        -- T
-        (10 , '0', '0', "000001", "011110", 1500, 1500),
-        (11 , '0', '0', "000001", "111111", 1500, 1500),
-        (12 , '0', '0', "000001", "111111", 1000, 1000),
-        (13 , '0', '0', "000001", "111111", 1000, 1000),
-        (14 , '0', '0', "000001", "111111", 1000, 1000),
-        -- U
-        (15 , '0', '0', "000001", "100011", 1500, 1500),
-        (16 , '0', '0', "000001", "111111", 1500, 1500),
-        (17 , '0', '0', "000001", "111111", 1000, 1000),
-        (18 , '0', '0', "000001", "111111", 1000, 1000),
-        (19 , '0', '0', "000001", "111111", 1000, 1000),
-        (20 , '0', '0', "000100", "101010", 1000, 1000),
         -- reinicialização
         (21 , '1', '0', "000100", "111111", 1000, 1000)
     );
@@ -130,6 +117,8 @@ begin
           dado_escrita    => dado_escrita_in,
           erros           => erros_out,
           fimDeJogo       => fimDeJogo_out,
+          errou_jogada    => errou_jogada_out,
+          acertou_jogada  => acertou_jogada_out,
           db_clock        => clock_out,
           db_tem_jogada   => tem_jogada_out,
           db_enderecoIgualRodada  => enderecoIgualRodada_out,
@@ -173,12 +162,12 @@ begin
             caso <= casos_teste(i).id;
             rst_in <= casos_teste(i).reset;
             iniciar_in <= casos_teste(i).iniciar;
-            botoes_in <= casos_teste(i).botoes;
+            botoes_in <= not casos_teste(i).botoes;
             dado_escrita_in <= casos_teste(i).dado_escrita;
 
             wait for casos_teste(i).ciclos_de_clock_antes*clockPeriod;
 
-            botoes_in <= "000000";
+            botoes_in <= "111111";
             dado_escrita_in <= "000000";
 
             wait for casos_teste(i).ciclos_de_clock_depois*clockPeriod;
