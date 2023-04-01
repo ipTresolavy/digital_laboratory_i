@@ -10,4 +10,6 @@ fluxo_dados.vhd
 unidade_controle.vhd
 braille_teacher.vhd
 braille_teacher_tb1.vhd
-
+braille_teacher_tb2.vhd
+braille_teacher_tb3.vhd
+braille_teacher_tb4.vhd

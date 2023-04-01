@@ -35,6 +35,7 @@ architecture tb of braille_teacher_tb1 is
         iniciar                : in  std_logic;
         botoes                 : in  std_logic_vector(5 downto 0);
         dado_escrita           : in  std_logic_vector(5 downto 0);
+        aguarda_escrita        : out std_logic;
         erros                  : out std_logic_vector(13 downto 0); -- HEX1 e HEX0
         fimDeJogo              : out std_logic; -- Analog Discovery DIO8
         errou_jogada           : out std_logic; -- Analog Discovery DIO5
@@ -58,6 +59,7 @@ architecture tb of braille_teacher_tb1 is
   signal dado_escrita_in : std_logic_vector(5 downto 0) := "000000";
 
   ---- Declaracao dos sinais de saida
+  signal aguarda_escrita_out     : std_logic := '0';
   signal erros_out               : std_logic_vector(13 downto 0);
   signal fimDeJogo_out           : std_logic := '0';
   signal errou_jogada_out        : std_logic := '0';
@@ -277,6 +279,7 @@ begin
           iniciar         => iniciar_in,
           botoes          => botoes_in,
           dado_escrita    => dado_escrita_in,
+          aguarda_escrita => aguarda_escrita_out,
           erros           => erros_out,
           fimDeJogo       => fimDeJogo_out,
           errou_jogada    => errou_jogada_out,

@@ -13,7 +13,9 @@
 --     Data        Versao  Autor             Descricao
 --     01/02/2020  1.0     Edson Midorikawa  criacao
 --     27/01/2021  1.1     Edson Midorikawa  revisao
---     27/01/2022  1.2     Edson Midorikawa  revisao e adaptacao --------------------------------------------------------------------------
+--     27/01/2022  1.2     Edson Midorikawa  revisao e adaptacao
+--     11/03/2023  2.0     Pontes Tresolavy  revisao e adaptacao
+--------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -34,13 +36,12 @@ architecture tb of braille_teacher_tb1 is
         botoes                 : in  std_logic_vector(5 downto 0);
         dado_escrita           : in  std_logic_vector(5 downto 0);
         erros                  : out std_logic_vector(13 downto 0); -- HEX1 e HEX0
-        tempoMedio             : out std_logic_vector(13 downto 0); -- HEX3 e HEX2
         fimDeJogo              : out std_logic; -- Analog Discovery DIO8
         db_clock               : out std_logic; -- Analog Discovery DIO0
         db_tem_jogada          : out std_logic; -- Analog Discovery DIO3
         db_enderecoIgualRodada : out std_logic; -- Analog Discovery DIO9
         db_contagem            : out std_logic_vector(3 downto 0); -- LEDR9 até LEDR6
-        db_memoria             : out std_logic_vector(5 downto 0); -- Analog Discovery DIO15 até DIO10
+        db_memoria             : out std_logic_vector(13 downto 0); -- Analog Discovery DIO15 até DIO10
         db_jogada_feita        : out std_logic_vector(5 downto 0); -- LEDR5 até LEDR0
         db_rodada              : out std_logic_vector(6 downto 0); -- HEX4
         db_estado              : out std_logic_vector(6 downto 0) -- HEX5
@@ -56,13 +57,12 @@ architecture tb of braille_teacher_tb1 is
 
   ---- Declaracao dos sinais de saida
   signal erros_out      : std_logic_vector(13 downto 0);
-  signal tempoMedio_out     : std_logic_vector(13 downto 0);
   signal fimDeJogo_out  : std_logic := '0';
   signal clock_out      : std_logic := '0';
   signal tem_jogada_out : std_logic := '0';
   signal enderecoIgualRodada_out : std_logic := '0';
   signal contagem_out   : std_logic_vector(3 downto 0) := "0000";
-  signal memoria_out    : std_logic_vector(5 downto 0) := "000000";
+  signal memoria_out    : std_logic_vector(13 downto 0) := "00000000000000";
   signal jogada_feita_out     : std_logic_vector(5 downto 0) := "000000";
   signal rodada_out     : std_logic_vector(6 downto 0) := "0000000";
   signal estado_out     : std_logic_vector(6 downto 0) := "0000000";
@@ -274,7 +274,6 @@ begin
           botoes          => botoes_in,
           dado_escrita    => dado_escrita_in,
           erros           => erros_out,
-          tempoMedio      => tempoMedio_out,
           fimDeJogo       => fimDeJogo_out,
           db_clock        => clock_out,
           db_tem_jogada   => tem_jogada_out,
