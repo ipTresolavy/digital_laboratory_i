@@ -8,6 +8,7 @@
 
 const char *mqtt_broker = "broker.emqx.io";
 const char *topic = "letter";
+const char *sinaisdecontrole = "controle";
 const char *mqtt_username = "emqx";
 const char *mqtt_password = "public";
 const int mqtt_port = 1883;
@@ -27,6 +28,9 @@ const int output6 = 25;
 const int outputacertou = 33;
 const int outputerrou = 32;
 const int outputbuzzer = 16;
+const int esperaescrita = 40;
+const int resetpin = 34;
+const int initpin = 30;
 
 int freq = 440;
 int channel = 0;
@@ -52,6 +56,13 @@ void callback(char *topic, byte *message, unsigned int length)
         messageTemp += (char)message[i];
     }
     Serial.println();
+
+    digitalWrite(output1, LOW);
+    digitalWrite(output2, LOW);
+    digitalWrite(output3, LOW);
+    digitalWrite(output4, LOW);
+    digitalWrite(output5, LOW);
+    digitalWrite(output6, LOW);
 
     if (String(topic) == "letter")
     {
@@ -290,6 +301,21 @@ void callback(char *topic, byte *message, unsigned int length)
             digitalWrite(output6, HIGH);
         }
     }
+    else if (String(topic) == "controle")
+    {
+        if (messageTemp == "2")
+        {
+            digitalWrite(resetpin, HIGH);
+            delay(20);
+            digitalWrite(resetpin, LOW);
+        }
+        if (messageTemp == "3")
+        {
+            digitalWrite(initpin, HIGH);
+            delay(20);
+            digitalWrite(initpin, LOW);
+        }
+    }
 }
 
 void setup()
@@ -306,6 +332,8 @@ void setup()
     pinMode(outputacertou, INPUT);
     // errou
     pinMode(outputerrou, INPUT);
+    // espera escrita
+    pinMode(esperaescrita, INPUT);
     // buzzer
     ledcSetup(channel, freq, resolution);
     ledcAttachPin(outputbuzzer, channel);
@@ -381,6 +409,12 @@ void connect_mqtt()
     // publish and subscribe
     client.publish(topic, "Hi EMQX I'm ESP32 ^^");
     client.subscribe(topic);
+    client.subscribe(sinaisdecontrole);
+    client.publish(sinaisdecontrole, "ESP32 is connected");
+    // sinais de controle
+    // 1 - espera escrita
+    // 2 - reset
+    // 3 - iniciar
 }
 
 void loop()
@@ -390,14 +424,22 @@ void loop()
     {
         ledcWrite(channel, 125);
         delay(1000);
+        client.publish(sinaisdecontrole, "4");
         Serial.println("acertou");
     }
     else if (digitalRead(outputerrou) == HIGH)
     {
         ledcWrite(channel, 250);
         delay(1000);
+        client.publish(sinaisdecontrole, "5");
         Serial.println("errou");
     }
+    if (digitalRead(esperaescrita) == HIGH)
+    {
+        client.publish(sinaisdecontrole, "1");
+        Serial.println("espera escrita");
+    }
+
     ledcWrite(channel, 0);
     // If a new client connects,
     // loop while the client's connected
