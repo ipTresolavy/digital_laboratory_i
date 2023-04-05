@@ -8,6 +8,18 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import useSound from "use-sound";
 import { ExposedData, PlayFunction } from "use-sound/dist/types";
 
+const generateSequence = (): string[] => {
+  let sequence = [];
+
+  for (let i = 0; i < 16; i++) {
+    const index = Math.floor(Math.random() * alphabet.length);
+    const letter = alphabet[index]!;
+    sequence.push(letter);
+  }
+
+  return sequence;
+};
+
 const Home: NextPage = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [letter, setLetter] = useState("");
@@ -18,7 +30,11 @@ const Home: NextPage = () => {
   const [acertos, setAcertos] = useState<number>(0);
   const [erros, setErros] = useState<number>(0);
   const [initializeEnable, setInitializeEnable] = useState<boolean>(true);
+  const [send, setSend] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(0);
+
   const [playEasterEgg] = useSound("/AHHHHH.mp3");
+
   const playerArray: { player: PlayFunction; data: ExposedData }[] = [];
   for (const letra of alphabet) {
     const [player, data] = useSound(`/sounds/${letra}.mp3`, {});
@@ -35,7 +51,8 @@ const Home: NextPage = () => {
       while (
         now.getTime() + playerArray[index]!.data!.duration! >
         new Date().getTime()
-      ) {}
+      ) {
+      }
     }
   }, [sequence]);
 
@@ -131,39 +148,26 @@ const Home: NextPage = () => {
     }
   };
 
+  useEffect(() => {
+    const packet = sequence[index];
+    console.log(packet);
+    console.log(sequence);
+    console.log(index);
+    setIndex((data) => {
+      return data + 1;
+    });
+
+    if (mqttClient) {
+      mqttClient.publish("letter", packet);
+    }
+  }, [acertos, erros, send]);
+
   return (
     <>
       <Navbar></Navbar>
       <div className="flex flex-col items-center space-y-8">
         <div className="flex h-24 w-full items-center justify-center rounded-md bg-gray-100 shadow-md">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Letra escolhida: {letter}
-          </h1>
-        </div>
-        <div className="grid grid-cols-7 gap-4">
-          {alphabet.map((l) => (
-            <button
-              className={`rounded-md py-4 px-6 font-medium shadow-md focus:outline-none ${
-                letter === l
-                  ? "bg-green-500 text-white"
-                  : enable
-                  ? "bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white"
-                  : "bg-red-500 text-white"
-              }`}
-              disabled={!enable}
-              key={l}
-              onClick={(e) => {
-                setEnable(false);
-                setLetter(l);
-                setSequence((sequence) => {
-                  return [...sequence, l];
-                });
-                handleSendMessage(l);
-              }}
-            >
-              {l}
-            </button>
-          ))}
+          <h1 className="text-3xl font-bold text-gray-800">Modo Aleatorio</h1>
         </div>
         <div className="mt-4">
           {
@@ -173,6 +177,16 @@ const Home: NextPage = () => {
             </div>
           }
         </div>
+
+        <button
+          onClick={() => {
+           setSequence(generateSequence());
+           setSend(true)
+          }}
+          className={`rounded-md  py-4 px-6 font-medium  shadow-md focus:outline-none ${"bg-green-500 text-white"}`}
+        >
+          Gerar jogadas
+        </button>
         <div className="grid grid-cols-2 gap-4">
           <button
             onClick={() => {

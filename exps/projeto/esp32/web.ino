@@ -415,6 +415,8 @@ void connect_mqtt()
     // 1 - espera escrita
     // 2 - reset
     // 3 - iniciar
+    // 4 - acertou
+    // 5 - errou
 }
 
 void loop()

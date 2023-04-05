@@ -3,12 +3,30 @@ import { useEffect, useState } from "react";
 import mqtt from "mqtt";
 import { alphabet } from "~/utils/alphabet";
 import Navbar from "~/components/Navbar";
+import { useRouter } from "next/router";
+import { FaCheck, FaTimes } from "react-icons/fa";
+import useSound from "use-sound";
+import { ExposedData, PlayFunction } from "use-sound/dist/types";
 
 const Home: NextPage = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [letter, setLetter] = useState("");
-  const [word, setWord] = useState("");
+  const [sequence, setSequence] = useState<string[]>([]);
+  const [actualSequence, setActualSequence] = useState<string[]>([]);
   const [mqttClient, setMqttClient] = useState<any>();
+  const [acertos, setAcertos] = useState<number>(0);
+  const [erros, setErros] = useState<number>(0);
+  const [initializeEnable, setInitializeEnable] = useState<boolean>(true);
+  const [send, setSend] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(0);
+
+  const playerArray: { player: PlayFunction; data: ExposedData }[] = [];
+  for (const letra of alphabet) {
+    const [player, data] = useSound(`/sounds/${letra}.mp3`, {});
+
+    playerArray.push({ player, data });
+  }
+
 
   useEffect(() => {
     const client = mqtt.connect("ws://broker.emqx.io:8083/mqtt", {
@@ -22,8 +40,35 @@ const Home: NextPage = () => {
     });
     console.log(client);
     client.on("connect", () => {
+      client.subscribe("controle");
       setIsConnected(true);
       setMqttClient(client);
+    });
+    client.on("message", (topic, messagebuffer) => {
+      let message = messagebuffer.toString();
+      const esperaescrita = "1";
+      const acerto = "4";
+      const erro = "5";
+      switch (topic) {
+        case "controle":
+          switch (message) {
+            case esperaescrita:
+              break;
+            case acerto:
+              setAcertos((data) => {
+                return data + 1;
+              });
+              break;
+            case erro:
+              setErros((data) => {
+                return data + 1;
+              });
+              break;
+          }
+          break;
+        default:
+          break;
+      }
     });
     client.on("error", (error) => {
       console.log("MQTT error:", error);
@@ -43,15 +88,50 @@ const Home: NextPage = () => {
     }
   };
 
+  useEffect(() => {
+    for (const letra of sequence) {
+      const now = new Date();
+      const index = alphabet.indexOf(letra);
+      playerArray[index]!.player();
+      while (
+        now.getTime() + playerArray[index]!.data!.duration! >
+        new Date().getTime()
+      ) {}
+    }
+  }, [sequence]);
+
+  useEffect(() => {
+    const packet = sequence[index];
+    setIndex((data) => {
+      return data + 1;
+    });
+
+    if (mqttClient) {
+      mqttClient.publish("letter", packet);
+    }
+  }, [acertos, erros, send]);
+
+  const handleReset = () => {
+    if (mqttClient) {
+      mqttClient.publish("controle", "2");
+    }
+  };
+
+  const handleInit = () => {
+    if (mqttClient) {
+      mqttClient.publish("controle", "3");
+    }
+  };
+
   return (
     <>
       <Navbar></Navbar>
+
       <div className="flex flex-col items-center space-y-8">
-        <div className="flex h-24 w-full flex-col items-center justify-center rounded-md bg-gray-100 shadow-md">
+        <div className="flex h-24 w-full items-center justify-center rounded-md bg-gray-100 shadow-md">
           <h1 className="text-3xl font-bold text-gray-800">
-            Palavra a ser escolhida:
+            Palavra escolhida: {sequence}
           </h1>
-          <h1 className="text-3xl font-bold text-gray-800">{word}</h1>
         </div>
         <div className="grid grid-cols-7 gap-4">
           {alphabet.map((l) => (
@@ -64,32 +144,76 @@ const Home: NextPage = () => {
               key={l}
               onClick={(e) => {
                 setLetter(l);
-                setWord(word + l);
-                handleSendMessage(l);
+                setActualSequence([...actualSequence, l]);
               }}
             >
               {l}
             </button>
           ))}
         </div>
-        <button
-          className="rounded-md py-4 px-6 font-medium bg-red-500 text-white shadow-md hover:bg-red-600 focus:outline-none flex items-center"
-          onClick={() => setWord(word.slice(0, -1))}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="mr-2 h-6 w-6"
+
+        <div className="flex flex-row">
+          <button
+            className="flex flex-row items-center rounded-md bg-red-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
+            onClick={() => {
+              setActualSequence(actualSequence.slice(0, actualSequence.length - 1));
+            }}
           >
-            <path
-              fillRule="evenodd"
-              d="M6.293 6.293a1 1 0 011.414 0L10 8.586l2.293-2.293a1 1 0 111.414 1.414L11.414 10l2.293 2.293a1 1 0 01-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 10 6.293 7.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Delete
-        </button>
+            <FaTimes color="white" />
+            Apagar
+          </button>
+          <div className="w-8"></div>
+          <button
+            className="flex flex-row items-center rounded-md bg-green-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
+            onClick={() => {
+              setIndex(0);
+              setSend(true);
+            }}
+          >
+            Enviar
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <button
+            onClick={() => {
+              setSequence([]);
+              setLetter("");
+              handleReset();
+              setInitializeEnable(true);
+              setIndex(0);
+              setAcertos(0);
+              setErros(0);
+            }}
+            className="rounded-md bg-red-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
+          >
+            RESET
+          </button>
+          <button
+            onClick={() => {
+              setInitializeEnable(false);
+              handleInit();
+            }}
+            disabled={!initializeEnable}
+            className={`rounded-md  py-4 px-6 font-medium  shadow-md focus:outline-none ${
+              initializeEnable
+                ? "bg-green-500 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            INICIAR
+          </button>
+        </div>
+        <div className="flex flex-row ">
+          <div className="m-4 flex flex-row">
+            <FaCheck color="#22C55D" className="" />
+            {acertos}
+          </div>
+          <div className="m-4 flex flex-row">
+            <FaTimes color="#EF4444" className="" />
+            {erros}
+          </div>
+        </div>
       </div>
     </>
   );
