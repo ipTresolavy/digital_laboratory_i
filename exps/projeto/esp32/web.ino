@@ -32,7 +32,7 @@ const int esperaescrita = 40;
 const int resetpin = 34;
 const int initpin = 30;
 
-int freq = 440;
+int freq = 2000;
 int channel = 0;
 int resolution = 8;
 
@@ -424,14 +424,14 @@ void loop()
     client.loop();
     if (digitalRead(outputacertou) == HIGH)
     {
-        ledcWrite(channel, 125);
+        ledcWriteTone(channel, 880);
         delay(1000);
         client.publish(sinaisdecontrole, "4");
         Serial.println("acertou");
     }
     else if (digitalRead(outputerrou) == HIGH)
     {
-        ledcWrite(channel, 250);
+        ledcWriteTone(channel, 440);
         delay(1000);
         client.publish(sinaisdecontrole, "5");
         Serial.println("errou");
