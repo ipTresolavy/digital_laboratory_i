@@ -7,11 +7,12 @@ import { useRouter } from "next/router";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import useSound from "use-sound";
 import { ExposedData, PlayFunction } from "use-sound/dist/types";
+import SoundPlayer from "./test";
 
 const generateSequence = (): string[] => {
   let sequence = [];
 
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 8; i++) {
     const index = Math.floor(Math.random() * alphabet.length);
     const letter = alphabet[index]!;
     sequence.push(letter);
@@ -34,43 +35,6 @@ const Home: NextPage = () => {
   const [index, setIndex] = useState<number>(0);
 
   const [playEasterEgg] = useSound("/AHHHHH.mp3");
-
-  const playerArray: { player: PlayFunction; data: ExposedData }[] = [];
-  for (const letra of alphabet) {
-    const [player, data] = useSound(`/sounds/${letra}.mp3`, {});
-
-    playerArray.push({ player, data });
-  }
-
-  const router = useRouter();
-  useEffect(() => {
-    for (const letra of sequence) {
-      const now = new Date();
-      const index = alphabet.indexOf(letra);
-      playerArray[index]!.player();
-      while (
-        now.getTime() + playerArray[index]!.data!.duration! >
-        new Date().getTime()
-      ) {
-      }
-    }
-  }, [sequence]);
-
-  const playSound = () => {
-    setSequence((data) => {
-      return data;
-    });
-    console.log(sequence);
-  };
-
-  useEffect(() => {
-    const letters = sequence.join("");
-    if (letters === "KONAMI") {
-      for (let i = 0; i < 30; i++) {
-        playEasterEgg();
-      }
-    }
-  }, [sequence]);
 
   useEffect(() => {
     const client = mqtt.connect("ws://broker.emqx.io:8083/mqtt", {
@@ -98,16 +62,16 @@ const Home: NextPage = () => {
         case "controle":
           switch (message) {
             case esperaescrita:
-              setEnable(true);
+              setSend((data) => {
+                return !data;
+              });
               break;
             case acerto:
-              playSound();
               setAcertos((data) => {
                 return data + 1;
               });
               break;
             case erro:
-              playSound();
               setErros((data) => {
                 return data + 1;
               });
@@ -150,9 +114,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const packet = sequence[index];
-    console.log(packet);
-    console.log(sequence);
-    console.log(index);
+    console.log(sequence)
     setIndex((data) => {
       return data + 1;
     });
@@ -160,7 +122,7 @@ const Home: NextPage = () => {
     if (mqttClient) {
       mqttClient.publish("letter", packet);
     }
-  }, [acertos, erros, send]);
+  }, [send]);
 
   return (
     <>
@@ -180,8 +142,11 @@ const Home: NextPage = () => {
 
         <button
           onClick={() => {
-           setSequence(generateSequence());
-           setSend(true)
+            setSequence(generateSequence());
+            setIndex(() => {return 0})
+            setSend((data) => {
+              return !data;
+            });
           }}
           className={`rounded-md  py-4 px-6 font-medium  shadow-md focus:outline-none ${"bg-green-500 text-white"}`}
         >
@@ -190,6 +155,7 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-2 gap-4">
           <button
             onClick={() => {
+              setIndex(() => {return 0})
               setSequence([]);
               setEnable(true);
               setLetter("");
@@ -228,6 +194,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <SoundPlayer sequence={sequence} />
     </>
   );
 };

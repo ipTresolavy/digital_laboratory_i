@@ -7,26 +7,18 @@ import { useRouter } from "next/router";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import useSound from "use-sound";
 import { ExposedData, PlayFunction } from "use-sound/dist/types";
+import SoundPlayer from "./test";
 
 const Home: NextPage = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [letter, setLetter] = useState("");
   const [sequence, setSequence] = useState<string[]>([]);
-  const [actualSequence, setActualSequence] = useState<string[]>([]);
   const [mqttClient, setMqttClient] = useState<any>();
   const [acertos, setAcertos] = useState<number>(0);
   const [erros, setErros] = useState<number>(0);
   const [initializeEnable, setInitializeEnable] = useState<boolean>(true);
   const [send, setSend] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
-
-  const playerArray: { player: PlayFunction; data: ExposedData }[] = [];
-  for (const letra of alphabet) {
-    const [player, data] = useSound(`/sounds/${letra}.mp3`, {});
-
-    playerArray.push({ player, data });
-  }
-
 
   useEffect(() => {
     const client = mqtt.connect("ws://broker.emqx.io:8083/mqtt", {
@@ -53,6 +45,9 @@ const Home: NextPage = () => {
         case "controle":
           switch (message) {
             case esperaescrita:
+              setSend((data) => {
+                return !data;
+              });
               break;
             case acerto:
               setAcertos((data) => {
@@ -89,18 +84,6 @@ const Home: NextPage = () => {
   };
 
   useEffect(() => {
-    for (const letra of sequence) {
-      const now = new Date();
-      const index = alphabet.indexOf(letra);
-      playerArray[index]!.player();
-      while (
-        now.getTime() + playerArray[index]!.data!.duration! >
-        new Date().getTime()
-      ) {}
-    }
-  }, [sequence]);
-
-  useEffect(() => {
     const packet = sequence[index];
     setIndex((data) => {
       return data + 1;
@@ -109,7 +92,7 @@ const Home: NextPage = () => {
     if (mqttClient) {
       mqttClient.publish("letter", packet);
     }
-  }, [acertos, erros, send]);
+  }, [send]);
 
   const handleReset = () => {
     if (mqttClient) {
@@ -144,7 +127,7 @@ const Home: NextPage = () => {
               key={l}
               onClick={(e) => {
                 setLetter(l);
-                setActualSequence([...actualSequence, l]);
+                setSequence([...sequence, l]);
               }}
             >
               {l}
@@ -156,7 +139,7 @@ const Home: NextPage = () => {
           <button
             className="flex flex-row items-center rounded-md bg-red-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
             onClick={() => {
-              setActualSequence(actualSequence.slice(0, actualSequence.length - 1));
+              setSequence(sequence.slice(0, sequence.length - 1));
             }}
           >
             <FaTimes color="white" />
@@ -167,7 +150,7 @@ const Home: NextPage = () => {
             className="flex flex-row items-center rounded-md bg-green-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
             onClick={() => {
               setIndex(0);
-              setSend(true);
+              setSend((data) => {return !data});
             }}
           >
             Enviar
@@ -215,6 +198,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <SoundPlayer sequence={sequence} />
     </>
   );
 };

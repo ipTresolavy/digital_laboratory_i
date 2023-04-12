@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import useSound from "use-sound";
 import { ExposedData, PlayFunction } from "use-sound/dist/types";
+import SoundPlayer from "./test";
 
 const Home: NextPage = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -19,32 +20,7 @@ const Home: NextPage = () => {
   const [erros, setErros] = useState<number>(0);
   const [initializeEnable, setInitializeEnable] = useState<boolean>(true);
   const [playEasterEgg] = useSound("/AHHHHH.mp3");
-  const playerArray: { player: PlayFunction; data: ExposedData }[] = [];
-  for (const letra of alphabet) {
-    const [player, data] = useSound(`/sounds/${letra}.mp3`, {});
 
-    playerArray.push({ player, data });
-  }
-
-  const router = useRouter();
-  useEffect(() => {
-    for (const letra of sequence) {
-      const now = new Date();
-      const index = alphabet.indexOf(letra);
-      playerArray[index]!.player();
-      while (
-        now.getTime() + playerArray[index]!.data!.duration! >
-        new Date().getTime()
-      ) {}
-    }
-  }, [sequence]);
-
-  const playSound = () => {
-    setSequence((data) => {
-      return data;
-    });
-    console.log(sequence);
-  };
 
   useEffect(() => {
     const letters = sequence.join("");
@@ -73,7 +49,6 @@ const Home: NextPage = () => {
     });
     client.on("message", (topic, messagebuffer) => {
       let message = messagebuffer.toString();
-      console.log(message);
       const esperaescrita = "1";
       const acerto = "4";
       const erro = "5";
@@ -84,13 +59,11 @@ const Home: NextPage = () => {
               setEnable(true);
               break;
             case acerto:
-              playSound();
               setAcertos((data) => {
                 return data + 1;
               });
               break;
             case erro:
-              playSound();
               setErros((data) => {
                 return data + 1;
               });
@@ -143,22 +116,19 @@ const Home: NextPage = () => {
         <div className="grid grid-cols-7 gap-4">
           {alphabet.map((l) => (
             <button
-              className={`rounded-md py-4 px-6 font-medium shadow-md focus:outline-none ${
-                letter === l
+              className={`rounded-md py-4 px-6 font-medium shadow-md focus:outline-none ${letter === l
                   ? "bg-green-500 text-white"
                   : enable
-                  ? "bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white"
-                  : "bg-red-500 text-white"
-              }`}
+                    ? "bg-gray-200 text-gray-700 hover:bg-green-500 hover:text-white"
+                    : "bg-red-500 text-white"
+                }`}
               disabled={!enable}
               key={l}
               onClick={(e) => {
                 setEnable(false);
                 setLetter(l);
-                setSequence((sequence) => {
-                  return [...sequence, l];
-                });
                 handleSendMessage(l);
+                setSequence((data) => {return [...data, l]});
               }}
             >
               {l}
@@ -183,6 +153,7 @@ const Home: NextPage = () => {
               setInitializeEnable(true);
               setAcertos(0);
               setErros(0);
+
             }}
             className="rounded-md bg-red-500 py-4 px-6 font-medium text-white shadow-md focus:outline-none"
           >
@@ -194,11 +165,10 @@ const Home: NextPage = () => {
               handleInit();
             }}
             disabled={!initializeEnable}
-            className={`rounded-md  py-4 px-6 font-medium  shadow-md focus:outline-none ${
-              initializeEnable
+            className={`rounded-md  py-4 px-6 font-medium  shadow-md focus:outline-none ${initializeEnable
                 ? "bg-green-500 text-white"
                 : "bg-gray-200 text-gray-700"
-            }`}
+              }`}
           >
             INICIAR
           </button>
@@ -214,6 +184,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+      <SoundPlayer sequence={sequence}  />
     </>
   );
 };
