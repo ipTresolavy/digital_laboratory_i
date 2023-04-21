@@ -167,8 +167,8 @@ begin
             assert false report "Caso de teste " & integer'image(casos_teste(i).id) severity note;
 
             caso <= casos_teste(i).id;
-            rst_in <= not casos_teste(i).reset;
-            iniciar_in <= not casos_teste(i).iniciar;
+            rst_in <= casos_teste(i).reset;
+            iniciar_in <= casos_teste(i).iniciar;
             resposta_in <= casos_teste(i).resposta;
             botoes_in <= not casos_teste(i).botoes;
             dado_escrita_in <= casos_teste(i).dado_escrita;
