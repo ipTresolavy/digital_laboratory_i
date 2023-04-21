@@ -271,9 +271,9 @@ begin
     RegTempo: registrador_n
         generic map (22)
         port map (
-            clock  => clock,
+            clock  => registraTempo,
             clear  => zeraEstat,
-            enable => registraTempo,
+            enable => '1',
             D      => s_Timer_mais_Tempo,
             Q      => s_Tempo
         );
@@ -358,7 +358,7 @@ begin
         zera_as => zeraT,
         zera_s => '0',
         conta => contaT,
-        Q => open,
+        Q => s_Timer,
         fim => fimT,
         meio => open
       );

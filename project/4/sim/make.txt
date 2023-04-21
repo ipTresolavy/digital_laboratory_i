@@ -1,4 +1,5 @@
 mux_2x1.vhd
+letter7seg.vhd
 hexa7seg.vhd
 contador_m.vhd
 contador_163.vhd

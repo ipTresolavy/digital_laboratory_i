@@ -164,11 +164,12 @@ begin
                   '0' when others;
 
     with Eatual select
-        contaErr <= '1' when inicializa | errou,
+        contaErr <= '1' when errou,
+                    clock when inicializa,
                     '0' when others;
 
     with Eatual select
-        registraTempo <= '1' when super_espera_jogada,
+        registraTempo <= '1' when errou | acertou,
                         '0' when others;
 
     with Eatual select
@@ -176,7 +177,7 @@ begin
                  '0' when others;
 
     with Eatual select
-        zeraEstat <= '1' when inicial | inicializa | fim,
+        zeraEstat <= '1' when inicial | inicializa,
                      '0' when others;
 
     with Eatual select

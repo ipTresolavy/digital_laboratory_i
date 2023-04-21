@@ -32,21 +32,22 @@ architecture tb of braille_teacher_tb2 is
         clock                  : in  std_logic;
         reset                  : in  std_logic;
         iniciar                : in  std_logic;
+        resposta               : in  std_logic;
         botoes                 : in  std_logic_vector(5 downto 0);
         dado_escrita           : in  std_logic_vector(5 downto 0);
         aguarda_escrita        : out std_logic;
         erros                  : out std_logic_vector(13 downto 0); -- HEX1 e HEX0
+        tempoMedio             : out std_logic_vector(13 downto 0); -- HEX3 e HEX2
         fimDeJogo              : out std_logic; -- Analog Discovery DIO8
         errou_jogada           : out std_logic; -- Analog Discovery DIO5
         acertou_jogada         : out std_logic; -- Analog Discovery DIO6
+        memoria_ou_jogada      : out std_logic_vector(6 downto 0); -- HEX4
         db_clock               : out std_logic; -- Analog Discovery DIO3
         db_tem_jogada          : out std_logic; -- Analog Discovery DIO4
         db_enderecoIgualRodada : out std_logic; -- Analog Discovery DIO9
         db_contagem            : out std_logic_vector(3 downto 0); -- LEDR9 até LEDR6
-        db_memoria             : out std_logic_vector(13 downto 0); -- HEX3 e HEX2
-        db_jogada_feita        : out std_logic_vector(5 downto 0); -- LEDR5 até LEDR0
-        db_rodada              : out std_logic_vector(6 downto 0); -- HEX4
-        db_estado              : out std_logic_vector(6 downto 0) -- HEX5
+        db_rodada              : out std_logic_vector(3 downto 0); -- LEDR3 até LEDR0
+        db_estado              : out std_logic_vector(6 downto 0)  -- HEX5
     );
   end component;
 
@@ -54,11 +55,14 @@ architecture tb of braille_teacher_tb2 is
   signal clk_in          : std_logic := '0';
   signal rst_in          : std_logic := '0';
   signal iniciar_in      : std_logic := '0';
+  signal resposta_in     : std_logic := '0';
   signal botoes_in       : std_logic_vector(5 downto 0) := "111111";
   signal dado_escrita_in : std_logic_vector(5 downto 0) := "000000";
 
   ---- Declaracao dos sinais de saida
+  signal aguarda_escrita_out     : std_logic := '0';
   signal erros_out               : std_logic_vector(13 downto 0);
+  signal tempoMedio_out          : std_logic_vector(13 downto 0);
   signal fimDeJogo_out           : std_logic := '0';
   signal errou_jogada_out        : std_logic := '0';
   signal acertou_jogada_out      : std_logic := '0';
@@ -66,9 +70,8 @@ architecture tb of braille_teacher_tb2 is
   signal tem_jogada_out          : std_logic := '0';
   signal enderecoIgualRodada_out : std_logic := '0';
   signal contagem_out            : std_logic_vector(3 downto 0) := "0000";
-  signal memoria_out             : std_logic_vector(13 downto 0) := "00000000000000";
-  signal jogada_feita_out        : std_logic_vector(5 downto 0) := "000000";
-  signal rodada_out              : std_logic_vector(6 downto 0) := "0000000";
+  signal memoria_ou_jogada_out   : std_logic_vector(6 downto 0) := "0000000";
+  signal rodada_out              : std_logic_vector(3 downto 0) := "0000";
   signal estado_out              : std_logic_vector(6 downto 0) := "0000000";
 
   -- Configurações do clock
@@ -82,6 +85,7 @@ architecture tb of braille_teacher_tb2 is
         id                     : natural;
         reset                  : std_logic;
         iniciar                : std_logic;
+        resposta               : std_logic;
         botoes                 : std_logic_vector (5 downto 0);
         dado_escrita           : std_logic_vector (5 downto 0);
         ciclos_de_clock_antes  : natural;
@@ -91,14 +95,15 @@ architecture tb of braille_teacher_tb2 is
     type casos_teste_array is array (natural range <>) of caso_teste_type;
     constant casos_teste : casos_teste_array := (
         -- Q
-        (1  , '0', '0', "111111", "111110", 1500, 1500),
-        (2  , '0', '0', "000001", "111111", 1000, 1000),
+        (1  , '0', '0', '0', "111111", "111110", 1500, 1500),
+        (2  , '0', '0', '0', "000001", "111111", 1000, 1000),
         -- R
-        (3  , '0', '0', "000001", "101110", 1500, 1500),
-        (4  , '0', '0', "111110", "111111", 1000, 1000),
-        (5  , '0', '0', "000001", "111111", 1000, 1000),
+        (3  , '0', '0', '0', "000001", "101110", 1500, 1500),
+        (4  , '0', '0', '0', "111110", "111111", 1000, 1000),
+        (5  , '0', '0', '0', "000001", "111111", 1000, 1000),
         -- reinicialização
-        (21 , '1', '0', "000100", "111111", 1000, 1000)
+        (6  , '1', '0', '0', "000100", "111111", 1000, 1000),
+        (7  , '0', '1', '0', "000100", "111111", 1000, 1000)
     );
 
 begin
@@ -113,18 +118,20 @@ begin
           clock           => clk_in,
           reset           => rst_in,
           iniciar         => iniciar_in,
+          resposta        => resposta_in,
           botoes          => botoes_in,
           dado_escrita    => dado_escrita_in,
+          aguarda_escrita => aguarda_escrita_out,
           erros           => erros_out,
+          tempoMedio      => tempoMedio_out,
           fimDeJogo       => fimDeJogo_out,
           errou_jogada    => errou_jogada_out,
           acertou_jogada  => acertou_jogada_out,
+          memoria_ou_jogada   => memoria_ou_jogada_out,
           db_clock        => clock_out,
           db_tem_jogada   => tem_jogada_out,
           db_enderecoIgualRodada  => enderecoIgualRodada_out,
-          db_contagem        => contagem_out,
-          db_memoria   => memoria_out,
-          db_jogada_feita => jogada_feita_out,
+          db_contagem             => contagem_out,
           db_rodada => rodada_out,
           db_estado => estado_out
        );
@@ -160,8 +167,9 @@ begin
             assert false report "Caso de teste " & integer'image(casos_teste(i).id) severity note;
 
             caso <= casos_teste(i).id;
-            rst_in <= casos_teste(i).reset;
-            iniciar_in <= casos_teste(i).iniciar;
+            rst_in <= not casos_teste(i).reset;
+            iniciar_in <= not casos_teste(i).iniciar;
+            resposta_in <= casos_teste(i).resposta;
             botoes_in <= not casos_teste(i).botoes;
             dado_escrita_in <= casos_teste(i).dado_escrita;
 
